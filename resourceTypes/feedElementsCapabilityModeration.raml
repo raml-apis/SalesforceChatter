@@ -1,0 +1,22 @@
+get: 
+  is: [ isFeedElementsCapability ]
+  description: "Get information about a feed element's moderation capability."
+  responses: 
+    200: 
+post: 
+  is: [ isFeedElementsCapability ]
+  description: Add a moderation flag to a feed element.
+  body: 
+    application/json: 
+      schema: moderationFlags​FilesRequest
+      example: !include examples/moderationFlags​FilesRequest-example.json
+  responses: 
+    200: 
+delete: 
+  description: Delete all moderation flags from a feed element.
+  responses: 
+    204: 
+head: 
+  description: "Get information about a feed element's moderation capability."
+  responses: 
+    200: 

@@ -1,0 +1,193 @@
+#%RAML 0.8
+title: Chatter
+version: v34.0
+baseUri: https://na1.salesforce.com/services/data/{version}
+schemas:
+  - actionLinkGroupDefinitionRequest: !include /schemas/actionLinkGroupDefinitionRequest-schema.json
+  - actionLinkUpdateStatusRequest: !include /schemas/actionLinkUpdateStatusRequest-schema.json
+  - announcementsResourcePatchRequest: !include /schemas/announcementsResourcePatchRequest-schema.json
+  - genericBatchCollectionInputRequest: !include /schemas/genericBatchCollectionInputRequest-schema.json
+  - genericBatchCollectionInputResponse: !include /schemas/genericBatchCollectionInputResponse-schema.json
+  - chatterResource: !include /schemas/chatterResource-schema.json
+  - addModerationFlagRequest: !include /schemas/addModerationFlagRequest-schema.json
+  - moderationFlags​CommentsRequest: !include /schemas/moderationFlags​CommentsRequest-schema.json
+  - moderationFlags​FilesRequest: !include /schemas/moderationFlags​FilesRequest-schema.json
+resourceTypes:
+  - actionLink: !include resourceTypes/actionLink.raml
+  - commentLikes: !include resourceTypes/commentLikes.raml
+  - actionLinkGroup: !include resourceTypes/actionLinkGroup.raml
+  - feedElementsCapabilityModeration: !include resourceTypes/feedElementsCapabilityModeration.raml
+  - actionLinkGroupIDDefinition: !include resourceTypes/actionLinkGroupIDDefinition.raml
+  - actionLinkGroupDefinition: !include resourceTypes/actionLinkGroupDefinition.raml
+  - actionLinkDiagnosticInformation: !include resourceTypes/actionLinkDiagnosticInformation.raml
+  - comment: !include resourceTypes/comment.raml
+  - commentCapabilityEditability: !include resourceTypes/commentCapabilityEditability.raml
+  - announcementsResource: !include resourceTypes/announcementsResource.raml
+  - chatterResource: !include resourceTypes/chatterResource.raml
+traits:
+  - isCommentLikes: !include traits/isCommentLikes.raml
+  - isFeedElementsCapability: !include traits/isFeedElementsCapability.raml
+  - isListOfCommunities: !include traits/isListOfCommunities.raml
+/connect/action-link-group-definitions: 
+  type: actionLinkGroupDefinition
+  /{actionLinkGroupId}: 
+    type: actionLinkGroupIDDefinition
+/connect/action-link-groups/{actionLinkGroupId}: 
+  type: actionLinkGroup
+/connect/action-links/{actionLinkId}: 
+  type: actionLink
+  /diagnostic-info: 
+    type: actionLinkDiagnosticInformation
+/connect/batch: 
+  post: 
+    description: Create a request body with a batch of up to 25 subrequests and send them to the server in a single request to improve your application’s performance. The response bodies and HTTP statuses for each subrequest in the batch are returned within a single response body. Each subrequest counts against rate limits.
+    body: 
+      application/json: 
+        schema: genericBatchCollectionInputRequest
+        example: !include examples/genericBatchCollectionInputRequest-example.json
+    responses: 
+      201: 
+        body: 
+          application/json: 
+            schema: genericBatchCollectionInputResponse
+            example: !include examples/genericBatchCollectionInputResponse-example.json
+/chatter: 
+  type: chatterResource
+  /announcements/{announcementId}: 
+    type: announcementsResource
+  /comments/{commentId}: 
+    type: comment
+    /capabilities/edit/is-editable-by-me: 
+      type: commentCapabilityEditability
+    /likes: 
+      type: commentLikes
+/connect/communities: 
+  get: 
+    description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
+    responses: 
+      200: 
+  head: 
+    description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
+    responses: 
+      200: 
+  /{communityId}: 
+    get: 
+      description: Returns information about the specified community.
+      responses: 
+        200: 
+    head: 
+      description: Returns information about the specified community.
+      responses: 
+        200: 
+    /action-link-group-definitions: 
+      type: actionLinkGroupDefinition
+      /{actionLinkGroupId}: 
+        type: actionLinkGroupIDDefinition
+    /action-link-groups/{actionLinkGroupId}: 
+      type: actionLinkGroup
+    /action-links/{actionLinkId}: 
+      type: actionLink
+      /diagnostic-info: 
+        type: actionLinkDiagnosticInformation
+    /chatter: 
+      type: chatterResource
+      /announcements/{announcementId}: 
+        type: announcementsResource
+      /comments/{commentId}: 
+        type: comment
+        /capabilities/edit/is-editable-by-me: 
+          type: commentCapabilityEditability
+        /likes: 
+          type: commentLikes
+        /moderation-flags: 
+          get: 
+            is: [ isFeedElementsCapability ]
+            description: |
+              If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
+              If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
+            responses: 
+              200: 
+          post: 
+            is: [ isFeedElementsCapability ]
+            description: Create Moderation Flags​ on Comments.
+            body: 
+              application/json: 
+                schema: moderationFlags​CommentsRequest
+                example: !include examples/moderationFlags​CommentsRequest-example.json
+            responses: 
+              201: 
+          delete: 
+            description: Delete Moderation Flags​ on Comments.
+            queryParameters: 
+              userId: 
+                description: The ID of the context user. If specified, removes the flag the user previously added to the comment. If not specified and the context user is a moderator for the community, all flags on the comment are removed.
+            responses: 
+              204: 
+          head: 
+            description: |
+              If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
+              If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
+            responses: 
+              200: 
+      /feed-elements: 
+        type: feedElementsCapabilityModeration
+      /files/{fileId}/moderation-flags: 
+        get: 
+          is: [ isFeedElementsCapability ]
+          description: |
+            If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
+            
+            If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
+          responses: 
+            200: 
+        post: 
+          is: [ isFeedElementsCapability ]
+          description: Create Moderation Flags​ on Files
+          body: 
+            application/json: 
+              schema: moderationFlags​FilesRequest
+              example: !include examples/moderationFlags​FilesRequest-example.json
+          responses: 
+            201: 
+        delete: 
+          description: Delete Moderation Flags​ on Files
+          queryParameters: 
+            userId: 
+              description: The ID of the context user. If specified, removes the flag the user previously added to the file. If not specified and the context user is a moderator for the community, all flags on the file are removed.
+          responses: 
+            204: 
+        head: 
+          description: |
+            If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
+            
+            If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
+          responses: 
+            200: 
+      /files/moderation: 
+        get: 
+          description: |
+            Files that are flagged in a community.
+            
+            If the context user is a community moderator, returns the files that have been flagged by community members.
+          queryParameters: 
+            page: 
+              description: Specifies the number of the page you want returned.
+              type: integer
+            pageSize: 
+              description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
+              type: integer
+              default: 25
+              example: 5
+            q: 
+              description: A query string to filter the results. The string must contain at least two characters, not including wildcards. For information about wildcards, see Wildcards.
+          responses: 
+            200: 
+        head: 
+          description: |
+            Files that are flagged in a community.
+            
+            If the context user is a community moderator, returns the files that have been flagged by community members.
+          responses: 
+            200: 
+/{feedElementId}/capabilities/moderation: 
+  type: feedElementsCapabilityModeration

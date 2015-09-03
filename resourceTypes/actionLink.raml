@@ -1,0 +1,16 @@
+get: 
+  description: Get information about the status of an action link. The status of the action link in combination with the labelKey property of the Action Link Definition Input determines the text that displays in the UI. To trigger the API request for Api and ApiAsync action links, set the status to PendingStatus.
+  responses: 
+    200: 
+patch: 
+  description: Update the status of an action link. The status of the action link in combination with the labelKey property of the Action Link Definition Input determines the text that displays in the UI. To trigger the API request for Api and ApiAsync action links, set the status to PendingStatus.
+  body: 
+    application/json: 
+      schema: actionLinkUpdateStatusRequest
+      example: !include examples/actionLinkUpdateStatusRequest-example.json
+  responses: 
+    200: 
+head: 
+  description: Get information about the status of an action link. The status of the action link in combination with the labelKey property of the Action Link Definition Input determines the text that displays in the UI. To trigger the API request for Api and ApiAsync action links, set the status to PendingStatus.
+  responses: 
+    200: 
