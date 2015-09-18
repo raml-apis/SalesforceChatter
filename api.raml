@@ -11,46 +11,123 @@ schemas:
   - chatterResource: !include /schemas/chatterResource-schema.json
   - addModerationFlagRequest: !include /schemas/addModerationFlagRequest-schema.json
   - moderationFlags​CommentsRequest: !include /schemas/moderationFlags​CommentsRequest-schema.json
-  - moderationFlags​FilesRequest: !include /schemas/moderationFlags​FilesRequest-schema.json
+  - dashboardComponentSnapshotResourceRequest: !include /schemas/dashboardComponentSnapshotResourceRequest-schema.json
+  - datacloudOrdersRequest: !include /schemas/datacloudOrdersRequest-schema.json
+  - feedElementsPostSearchRequest: !include /schemas/feedElementsPostSearchRequest-schema.json
+  - feedElementsBatchPostRequest: !include /schemas/feedElementsBatchPostRequest-schema.json
+  - feedElementsCapabilityBookmarks: !include /schemas/feedElementsCapabilityBookmarks-schema.json
+  - addFeedElementsCapabilityTopicRequest: !include /schemas/addFeedElementsCapabilityTopicRequest-schema.json
+  - feedsListFavoritesRequest: !include /schemas/feedsListFavoritesRequest-schema.json
+  - updateUserFeedsFavoritesRequest: !include /schemas/updateUserFeedsFavoritesRequest-schema.json
+  - uploadNewFileRequest: !include /schemas/uploadNewFileRequest-schema.json
+  - fileShareRequest: !include /schemas/fileShareRequest-schema.json
+  - addingFileInFolderResponse: !include /schemas/addingFileInFolderResponse-schema.json
+  - updateGroupMemberRoleRequest: !include /schemas/updateGroupMemberRoleRequest-schema.json
+  - batchGroupMembershipsResponse: !include /schemas/batchGroupMembershipsResponse-schema.json
+  - createGroupInTheOrganizationRequest: !include /schemas/createGroupInTheOrganizationRequest-schema.json
+  - updateInformationOboutGroupRequest: !include /schemas/updateInformationOboutGroupRequest-schema.json
+  - createGroupAnnouncementRequest: !include /schemas/createGroupAnnouncementRequest-schema.json
+  - groupMemberResponse: !include /schemas/groupMemberResponse-schema.json
+  - groupMembersPrivateResponse: !include /schemas/groupMembersPrivateResponse-schema.json
+  - createGroupMembersPrivateResponse: !include /schemas/createGroupMembersPrivateResponse-schema.json
+  - createGroupPhotoRequest: !include /schemas/createGroupPhotoRequest-schema.json
+  - createGroupRecordRequest: !include /schemas/createGroupRecordRequest-schema.json
+  - influenceResourceResponse: !include /schemas/influenceResourceResponse-schema.json
 resourceTypes:
-  - actionLink: !include resourceTypes/actionLink.raml
-  - commentLikes: !include resourceTypes/commentLikes.raml
-  - actionLinkGroup: !include resourceTypes/actionLinkGroup.raml
-  - feedElementsCapabilityModeration: !include resourceTypes/feedElementsCapabilityModeration.raml
-  - actionLinkGroupIDDefinition: !include resourceTypes/actionLinkGroupIDDefinition.raml
+  - feedElementsCapabilityEditability: !include resourceTypes/feedElementsCapabilityEditability.raml
+  - fileShares: !include resourceTypes/fileShares.raml
+  - feedElementsCapabilityComments: !include resourceTypes/feedElementsCapabilityComments.raml
+  - listOfGroups: !include resourceTypes/listOfGroups.raml
+  - recordFeedURL: !include resourceTypes/recordFeedURL.raml
+  - groupTopics: !include resourceTypes/groupTopics.raml
+  - recordFeedElements: !include resourceTypes/recordFeedElements.raml
+  - groupRecords: !include resourceTypes/groupRecords.raml
+  - userProfileFeedURL: !include resourceTypes/userProfileFeedURL.raml
+  - feedElementsCapabilityQuestionAnswers: !include resourceTypes/feedElementsCapabilityQuestionAnswers.raml
+  - userFavoritesFeedElements: !include resourceTypes/userFavoritesFeedElements.raml
+  - feedElementsCapabilities: !include resourceTypes/feedElementsCapabilities.raml
+  - fileInformationBatch: !include resourceTypes/fileInformationBatch.raml
+  - groupPhoto: !include resourceTypes/groupPhoto.raml
   - actionLinkGroupDefinition: !include resourceTypes/actionLinkGroupDefinition.raml
+  - peopleFeedElements: !include resourceTypes/peopleFeedElements.raml
+  - batchGroupMemberships: !include resourceTypes/batchGroupMemberships.raml
+  - announcementsResource: !include resourceTypes/announcementsResource.raml
+  - filesFeedElements: !include resourceTypes/filesFeedElements.raml
+  - feedElementsCapabilityRecommendations: !include resourceTypes/feedElementsCapabilityRecommendations.raml
+  - feedElementsCapabilityPoll: !include resourceTypes/feedElementsCapabilityPoll.raml
+  - feedElementsCapabilityBundle: !include resourceTypes/feedElementsCapabilityBundle.raml
+  - newsFeedElements: !include resourceTypes/newsFeedElements.raml
+  - specificFilterFeedURL: !include resourceTypes/specificFilterFeedURL.raml
+  - feedElementsCapabilityChatterLikesItems: !include resourceTypes/feedElementsCapabilityChatterLikesItems.raml
+  - groupMembershipsInformation: !include resourceTypes/groupMembershipsInformation.raml
+  - feedElementsCapabilityTopics: !include resourceTypes/feedElementsCapabilityTopics.raml
+  - feedElementsCapabilityCaseComment: !include resourceTypes/feedElementsCapabilityCaseComment.raml
+  - userProfileFeedElements: !include resourceTypes/userProfileFeedElements.raml
+  - feedElementsBookmarks: !include resourceTypes/feedElementsBookmarks.raml
+  - groupInformation: !include resourceTypes/groupInformation.raml
+  - bookmarksFeedElements: !include resourceTypes/bookmarksFeedElements.raml
+  - feedElementsAssociatedActions: !include resourceTypes/feedElementsAssociatedActions.raml
+  - feedElementsCapabilityTrackedChanges: !include resourceTypes/feedElementsCapabilityTrackedChanges.raml
+  - groupMembersPrivate: !include resourceTypes/groupMembersPrivate.raml
+  - feedElementsCapabilityRecordSnapshot: !include resourceTypes/feedElementsCapabilityRecordSnapshot.raml
   - actionLinkDiagnosticInformation: !include resourceTypes/actionLinkDiagnosticInformation.raml
   - comment: !include resourceTypes/comment.raml
+  - companyFeedURL: !include resourceTypes/companyFeedURL.raml
   - commentCapabilityEditability: !include resourceTypes/commentCapabilityEditability.raml
-  - announcementsResource: !include resourceTypes/announcementsResource.raml
+  - groupRecord: !include resourceTypes/groupRecord.raml
+  - bookmarksFeedURL: !include resourceTypes/bookmarksFeedURL.raml
+  - groupFiles: !include resourceTypes/groupFiles.raml
+  - actionLink: !include resourceTypes/actionLink.raml
+  - groupMembershipRequestsPrivate: !include resourceTypes/groupMembershipRequestsPrivate.raml
+  - peopleFeedURL: !include resourceTypes/peopleFeedURL.raml
+  - fileRendition: !include resourceTypes/fileRendition.raml
+  - feedElementsCapabilityDashboardComponentSnapshot: !include resourceTypes/feedElementsCapabilityDashboardComponentSnapshot.raml
+  - groupSettings: !include resourceTypes/groupSettings.raml
+  - feedElementsCapabilityBundleElements: !include resourceTypes/feedElementsCapabilityBundleElements.raml
+  - filesSharesLink: !include resourceTypes/filesSharesLink.raml
+  - feedElementsCapabilityCanvas: !include resourceTypes/feedElementsCapabilityCanvas.raml
+  - fileContent: !include resourceTypes/fileContent.raml
+  - usersFilesGeneral: !include resourceTypes/usersFilesGeneral.raml
+  - feedElementsBatchGet: !include resourceTypes/feedElementsBatchGet.raml
+  - feedElementsApproval: !include resourceTypes/feedElementsApproval.raml
+  - listFilterFeedURLs: !include resourceTypes/listFilterFeedURLs.raml
+  - filterFeedElements: !include resourceTypes/filterFeedElements.raml
+  - groupAnnouncements: !include resourceTypes/groupAnnouncements.raml
+  - feedElementsCapabilityModeration: !include resourceTypes/feedElementsCapabilityModeration.raml
+  - groupsFeedElements: !include resourceTypes/groupsFeedElements.raml
+  - feedElementsCapabilityOrigin: !include resourceTypes/feedElementsCapabilityOrigin.raml
+  - feedElementsCapabilityEmailMessage: !include resourceTypes/feedElementsCapabilityEmailMessage.raml
+  - topicsFeedURL: !include resourceTypes/topicsFeedURL.raml
+  - actionLinkGroupIDDefinition: !include resourceTypes/actionLinkGroupIDDefinition.raml
+  - feedSingleElement: !include resourceTypes/feedSingleElement.raml
+  - userFeedsFavorites: !include resourceTypes/userFeedsFavorites.raml
+  - feedsListofFavorites: !include resourceTypes/feedsListofFavorites.raml
+  - commentLikes: !include resourceTypes/commentLikes.raml
+  - feedElements: !include resourceTypes/feedElements.raml
+  - actionLinkGroup: !include resourceTypes/actionLinkGroup.raml
+  - feedElementsBatch: !include resourceTypes/feedElementsBatch.raml
+  - feedElementsCapabilitiesBanner: !include resourceTypes/feedElementsCapabilitiesBanner.raml
+  - groupMembers: !include resourceTypes/groupMembers.raml
+  - feedsResource: !include resourceTypes/feedsResource.raml
+  - topicsFeedElements: !include resourceTypes/topicsFeedElements.raml
+  - newsFeedURL: !include resourceTypes/newsFeedURL.raml
+  - batchGroupInformation: !include resourceTypes/batchGroupInformation.raml
   - chatterResource: !include resourceTypes/chatterResource.raml
+  - filesFeedURL: !include resourceTypes/filesFeedURL.raml
+  - fileInformation: !include resourceTypes/fileInformation.raml
+  - toFeedURL: !include resourceTypes/toFeedURL.raml
+  - companyFeedElements: !include resourceTypes/companyFeedElements.raml
+  - groupsFeedURL: !include resourceTypes/groupsFeedURL.raml
+  - toFeedElements: !include resourceTypes/toFeedElements.raml
+  - feedElementsCapabilityCommentsItems: !include resourceTypes/feedElementsCapabilityCommentsItems.raml
+  - feedElementsCapabilityEnhancedLink: !include resourceTypes/feedElementsCapabilityEnhancedLink.raml
+  - feedElementsCapabilityContent: !include resourceTypes/feedElementsCapabilityContent.raml
+  - feedElementsCapabilityChatterLikes: !include resourceTypes/feedElementsCapabilityChatterLikes.raml
+  - influenceResource: !include resourceTypes/influenceResource.raml
 traits:
   - isCommentLikes: !include traits/isCommentLikes.raml
   - isFeedElementsCapability: !include traits/isFeedElementsCapability.raml
   - isListOfCommunities: !include traits/isListOfCommunities.raml
-/connect/action-link-group-definitions: 
-  type: actionLinkGroupDefinition
-  /{actionLinkGroupId}: 
-    type: actionLinkGroupIDDefinition
-/connect/action-link-groups/{actionLinkGroupId}: 
-  type: actionLinkGroup
-/connect/action-links/{actionLinkId}: 
-  type: actionLink
-  /diagnostic-info: 
-    type: actionLinkDiagnosticInformation
-/connect/batch: 
-  post: 
-    description: Create a request body with a batch of up to 25 subrequests and send them to the server in a single request to improve your application’s performance. The response bodies and HTTP statuses for each subrequest in the batch are returned within a single response body. Each subrequest counts against rate limits.
-    body: 
-      application/json: 
-        schema: genericBatchCollectionInputRequest
-        example: !include examples/genericBatchCollectionInputRequest-example.json
-    responses: 
-      201: 
-        body: 
-          application/json: 
-            schema: genericBatchCollectionInputResponse
-            example: !include examples/genericBatchCollectionInputResponse-example.json
 /chatter: 
   type: chatterResource
   /announcements/{announcementId}: 
@@ -61,133 +138,805 @@ traits:
       type: commentCapabilityEditability
     /likes: 
       type: commentLikes
-/connect/communities: 
+  /feed-elements: 
+    type: feedElements
+    /batch: 
+      type: feedElementsBatch
+      /{feedElementIds}: 
+        type: feedElementsBatchGet
+    /{feedElementId}: 
+      type: feedSingleElement
+      /capabilities: 
+        type: feedElementsCapabilities
+        /approval: 
+          type: feedElementsApproval
+        /associated-actions: 
+          type: feedElementsAssociatedActions
+        /banner: 
+          type: feedElementsCapabilitiesBanner
+        /bookmarks: 
+          type: feedElementsBookmarks
+        /bundle: 
+          type: feedElementsCapabilityBundle
+          /feed-elements: 
+            type: feedElementsCapabilityBundleElements
+        /canvas: 
+          type: feedElementsCapabilityCanvas
+        /case-comment: 
+          type: feedElementsCapabilityCaseComment
+        /chatter-likes: 
+          type: feedElementsCapabilityChatterLikes
+          /items: 
+            type: feedElementsCapabilityChatterLikesItems
+        /comments: 
+          type: feedElementsCapabilityComments
+          /items: 
+            type: feedElementsCapabilityCommentsItems
+        /content: 
+          type: feedElementsCapabilityContent
+        /dashboard-component-snapshot: 
+          type: feedElementsCapabilityDashboardComponentSnapshot
+        /edit/is-editable-by-me: 
+          type: feedElementsCapabilityEditability
+        /email-message: 
+          type: feedElementsCapabilityEmailMessage
+        /enhanced-link: 
+          type: feedElementsCapabilityEnhancedLink
+        /origin: 
+          type: feedElementsCapabilityOrigin
+        /poll: 
+          type: feedElementsCapabilityPoll
+        /question-and-answers: 
+          type: feedElementsCapabilityQuestionAnswers
+        /recommendations: 
+          type: feedElementsCapabilityRecommendations
+        /record-snapshot: 
+          type: feedElementsCapabilityRecordSnapshot
+        /topics: 
+          type: feedElementsCapabilityTopics
+        /tracked-changes: 
+          type: feedElementsCapabilityTrackedChanges
+  /feeds: 
+    type: feedsResource
+    /bookmarks/{userId}: 
+      type: bookmarksFeedURL
+      /feed-elements: 
+        type: bookmarksFeedElements
+    /company: 
+      type: companyFeedURL
+      /feed-elements: 
+        type: companyFeedElements
+    /favorites/{userId}: 
+      type: feedsListofFavorites
+      /{favoriteId}: 
+        type: userFeedsFavorites
+        /feed-elements: 
+          type: userFavoritesFeedElements
+    /files/{userId}: 
+      type: filesFeedURL
+      /feed-elements: 
+        type: filesFeedElements
+    /filter/{userId}: 
+      type: listFilterFeedURLs
+      /{keyPrefix}: 
+        type: specificFilterFeedURL
+        /feed-elements: 
+          type: filterFeedElements
+    /groups/{userId}: 
+      type: groupsFeedURL
+      /feed-elements: 
+        type: groupsFeedElements
+    /news/{userId}: 
+      type: newsFeedURL
+      /feed-elements: 
+        type: newsFeedElements
+    /people/{userId}: 
+      type: peopleFeedURL
+      /feed-elements: 
+        type: peopleFeedElements
+    /record/{recordId}: 
+      type: recordFeedURL
+      /feed-elements: 
+        type: recordFeedElements
+    /to/{userId}: 
+      type: toFeedURL
+      /feed-elements: 
+        type: toFeedElements
+    /topics/{topicId}: 
+      type: topicsFeedURL
+      /feed-elements: 
+        type: topicsFeedElements
+    /user-profile/{userId}: 
+      type: userProfileFeedURL
+      /feed-elements: 
+        type: userProfileFeedElements
+  /users/{userId}/files: 
+    type: usersFilesGeneral
+  /files: 
+    /{fileId}: 
+      type: fileInformation
+      /content: 
+        type: fileContent
+      /file-shares: 
+        type: fileShares
+        /link: 
+          type: filesSharesLink
+      /rendition: 
+        type: fileRendition
+    /batch/fileIds: 
+      type: fileInformationBatch
+  /folders/{folderId}: 
+    get: 
+      description: Get information about the specified folder.
+      responses: 
+        200: 
+          body: 
+            application/json: 
+    delete: 
+      description: Deleting a folder deletes all the folders within that folder and removes all files from the deleted folders so they are no longer synced.
+      responses: 
+        204: 
+    patch: 
+      description: Move, rename a folder.
+      queryParameters: 
+        isInMy​FileSync: 
+          description: |
+            true if the folder and all folders in this folder are synced with Salesforce Files Sync; false otherwise.
+            Setting isInMyFileSync is valid only for the root folder. Once set to true, isInMyFileSync can’t be set to false.
+          type: boolean
+        parent​FolderId: 
+          description: The ID of the new parent folder. If null, the folder is removed from its current folder. If the specified ID is root, the folder is moved to the root of the user’s folder hierarchy.
+          required: true
+        name: 
+          description: The new name for the folder
+          required: true
+      responses: 
+        200: 
+          body: 
+            application/json: 
+    head: 
+      description: Get information about the specified folder.
+      responses: 
+        200: 
+    /items: 
+      post: 
+        description: |
+          Add a file to a folder and create a folder. Sync the root folder.
+          
+          To create a folder, you can use a request body or request parameters in a POST request.
+        queryParameters: 
+          desc: 
+            description: The description of the file
+          isInMy​FileSync: 
+            description: true if the folder and all folders in this folder are synced with Salesforce Files Sync; false otherwise.
+            type: boolean
+          title: 
+            description: The title of the file
+          type: 
+            description: The item type. To create a folder, the value must be Folder.
+            required: true
+          folderPath: 
+            description: The path to the folder
+            required: true
+        body: 
+          application/json: 
+        responses: 
+          200: 
+            body: 
+              application/json: 
+                schema: addingFileInFolderResponse
+                example: !include examples/addingFileInFolderResponse-example.json
+      head: 
+        description: Get information about the contents of a folder.
+        responses: 
+          200: 
+      get: 
+        description: Get information about the contents of a folder.
+        queryParameters: 
+          filter: 
+            description: Specifies a filter for items within a folder. The value IsInMyFileSync filters out the items that aren’t synced in a folder.
+          page: 
+            description: An integer specifying a page of items. The default value is 0, which returns the first page.
+            type: integer
+            default: 0
+          pageSize: 
+            description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
+            type: integer
+            default: 25
+            example: 5
+        responses: 
+          200: 
+            body: 
+              application/json: 
+  /group-membership-requests/{requestId}: 
+    type: groupMembershipRequestsPrivate
+  /group-memberships: 
+    /batch/{membershipIds}: 
+      type: batchGroupMemberships
+    /{membershipId}: 
+      type: groupMembershipsInformation
+  /group-records/{groupRecordId}: 
+    type: groupRecord
+  /groups: 
+    type: listOfGroups
+    /batch/{group_list}: 
+      type: batchGroupInformation
+    /{groupId}: 
+      type: groupInformation
+      /announcements: 
+        type: groupAnnouncements
+      /files: 
+        type: groupFiles
+      /members: 
+        type: groupMembers
+        /requests: 
+          type: groupMembersPrivate
+      /my-settings: 
+        type: groupSettings
+      /photo: 
+        type: groupPhoto
+      /records: 
+        type: groupRecords
+      /topics: 
+        type: groupTopics
+  /influence/thresholds: 
+    type: influenceResource
+/connect: 
   get: 
-    description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
+    description: A directory of the organization and community resources available to the context user.
     responses: 
       200: 
   head: 
-    description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
+    description: A directory of the organization and community resources available to the context user.
     responses: 
       200: 
-  /{communityId}: 
+  /action-link-group-definitions: 
+    type: actionLinkGroupDefinition
+    /{actionLinkGroupId}: 
+      type: actionLinkGroupIDDefinition
+  /action-link-groups/{actionLinkGroupId}: 
+    type: actionLinkGroup
+  /action-links/{actionLinkId}: 
+    type: actionLink
+    /diagnostic-info: 
+      type: actionLinkDiagnosticInformation
+  /batch: 
+    post: 
+      description: Create a request body with a batch of up to 25 subrequests and send them to the server in a single request to improve your application’s performance. The response bodies and HTTP statuses for each subrequest in the batch are returned within a single response body. Each subrequest counts against rate limits.
+      body: 
+        application/json: 
+          schema: genericBatchCollectionInputRequest
+          example: !include examples/genericBatchCollectionInputRequest-example.json
+      responses: 
+        201: 
+          body: 
+            application/json: 
+              schema: genericBatchCollectionInputResponse
+              example: !include examples/genericBatchCollectionInputResponse-example.json
+  /communities: 
     get: 
-      description: Returns information about the specified community.
+      description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
       responses: 
         200: 
     head: 
-      description: Returns information about the specified community.
+      description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
       responses: 
         200: 
-    /action-link-group-definitions: 
-      type: actionLinkGroupDefinition
-      /{actionLinkGroupId}: 
-        type: actionLinkGroupIDDefinition
-    /action-link-groups/{actionLinkGroupId}: 
-      type: actionLinkGroup
-    /action-links/{actionLinkId}: 
-      type: actionLink
-      /diagnostic-info: 
-        type: actionLinkDiagnosticInformation
-    /chatter: 
-      type: chatterResource
-      /announcements/{announcementId}: 
-        type: announcementsResource
-      /comments/{commentId}: 
-        type: comment
-        /capabilities/edit/is-editable-by-me: 
-          type: commentCapabilityEditability
-        /likes: 
-          type: commentLikes
-        /moderation-flags: 
+    /{communityId}: 
+      get: 
+        description: Returns information about the specified community.
+        responses: 
+          200: 
+      head: 
+        description: Returns information about the specified community.
+        responses: 
+          200: 
+      /action-link-group-definitions: 
+        type: actionLinkGroupDefinition
+        /{actionLinkGroupId}: 
+          type: actionLinkGroupIDDefinition
+      /action-link-groups/{actionLinkGroupId}: 
+        type: actionLinkGroup
+      /action-links/{actionLinkId}: 
+        type: actionLink
+        /diagnostic-info: 
+          type: actionLinkDiagnosticInformation
+      /chatter: 
+        type: chatterResource
+        /announcements/{announcementId}: 
+          type: announcementsResource
+        /comments/{commentId}: 
+          type: comment
+          /capabilities/edit/is-editable-by-me: 
+            type: commentCapabilityEditability
+          /likes: 
+            type: commentLikes
+          /moderation-flags: 
+            get: 
+              is: [ isFeedElementsCapability ]
+              description: |
+                If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
+                If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
+              responses: 
+                200: 
+            post: 
+              is: [ isFeedElementsCapability ]
+              description: Create Moderation Flags​ on Comments.
+              body: 
+                application/json: 
+                  schema: moderationFlags​CommentsRequest
+                  example: !include examples/moderationFlags​CommentsRequest-example.json
+              responses: 
+                201: 
+            delete: 
+              description: Delete Moderation Flags​ on Comments.
+              queryParameters: 
+                userId: 
+                  description: The ID of the context user. If specified, removes the flag the user previously added to the comment. If not specified and the context user is a moderator for the community, all flags on the comment are removed.
+              responses: 
+                204: 
+            head: 
+              description: |
+                If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
+                If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
+              responses: 
+                200: 
+        /feed-elements: 
+          type: feedElementsCapabilityModeration
+          /batch: 
+            type: feedElementsBatch
+            /{feedElementIds}: 
+              type: feedElementsBatchGet
+          /{feedElementId}: 
+            type: feedSingleElement
+            /capabilities: 
+              type: feedElementsCapabilities
+              /approval: 
+                type: feedElementsApproval
+              /associated-actions: 
+                type: feedElementsAssociatedActions
+              /banner: 
+                type: feedElementsCapabilitiesBanner
+              /bookmarks: 
+                type: feedElementsBookmarks
+              /bundle: 
+                type: feedElementsCapabilityBundle
+                /feed-elements: 
+                  type: feedElementsCapabilityBundleElements
+              /canvas: 
+                type: feedElementsCapabilityCanvas
+              /case-comment: 
+                type: feedElementsCapabilityCaseComment
+              /chatter-likes: 
+                type: feedElementsCapabilityChatterLikes
+                /items: 
+                  type: feedElementsCapabilityChatterLikesItems
+              /comments: 
+                type: feedElementsCapabilityComments
+                /items: 
+                  type: feedElementsCapabilityCommentsItems
+              /content: 
+                type: feedElementsCapabilityContent
+              /dashboard-component-snapshot: 
+                type: feedElementsCapabilityDashboardComponentSnapshot
+              /edit/is-editable-by-me: 
+                type: feedElementsCapabilityEditability
+              /email-message: 
+                type: feedElementsCapabilityEmailMessage
+              /enhanced-link: 
+                type: feedElementsCapabilityEnhancedLink
+              /moderation: 
+                type: feedElementsCapabilityModeration
+              /origin: 
+                type: feedElementsCapabilityOrigin
+              /poll: 
+                type: feedElementsCapabilityPoll
+              /question-and-answers: 
+                type: feedElementsCapabilityQuestionAnswers
+              /recommendations: 
+                type: feedElementsCapabilityRecommendations
+              /record-snapshot: 
+                type: feedElementsCapabilityRecordSnapshot
+              /topics: 
+                type: feedElementsCapabilityTopics
+              /tracked-changes: 
+                type: feedElementsCapabilityTrackedChanges
+        /feeds: 
+          type: feedsResource
+          /bookmarks/{userId}: 
+            type: bookmarksFeedURL
+            /feed-elements: 
+              type: bookmarksFeedElements
+          /home/feed-elements: 
+            head: 
+              description: Returns a list of all feed elements associated with any managed topic in the community.
+              responses: 
+                200: 
+            get: 
+              description: Returns a list of all feed elements associated with any managed topic in the community.
+              queryParameters: 
+                filter: 
+                  description: |
+                    Specifies the filter values that can be applied to a feed.
+                    AllQuestions—Only feed elements that are questions.
+                    CommunityScoped—Reserved for future use.
+                    SolvedQuestions—Only feed elements that are questions and that have a best answer.
+                    UnansweredQuestions—Only feed elements that are questions and that don’t have any answers.
+                    UnsolvedQuestions—Only feed elements that are questions and that don’t have a best answer.
+                  enum: 
+                    - CommunityScoped
+                    - UnsolvedQuestions
+                    - UnansweredQuestions
+                    - SolvedQuestions
+                    - AllQuestions
+                  example: AllQuestions
+                page: 
+                  description: |
+                    A generated token that indicates the view of feed elements in the feed. Page tokens are returned as part of the response body, in one of the URL parameters, such as nextPageURL, for example:
+                    "nextPageUrl": 
+                    "/services/data/v34.0/chatter/feeds/news/005D0000001GLowIAN/feed-elements?page=2011-03-30T17:34:50Z,0D5D0000000DSv4KAG"
+                pageSize: 
+                  description: "Specifies the number of elements per page. Valid values are between 1 and 100. If you don't specify a size, the default is 25."
+                  type: integer
+                  default: 25
+                  example: 5
+                q: 
+                  description: |
+                    One or more keywords to search for in the body and comments of feed elements in this feed.
+                    The search string can contain wildcards and must contain at least two characters that aren’t wildcards. See Wildcards.
+                sort: 
+                  description: |
+                    Specifies the order returned by the sort, such as by date created or last modified:
+                    CreatedDateDesc—Sorts by most recent creation date.
+                    LastModifiedDateDesc—Sorts by most recent activity.
+                    The default value is CreatedDescDate.
+                  enum: [ CreatedDescDate , LastModifiedDateDesc ]
+                  default: CreatedDescDate
+                  example: LastModifiedDateDesc
+              responses: 
+                200: 
+                  body: 
+                    application/json: 
+          /moderation/feed-elements: 
+            head: 
+              description: If the context user is a community moderator with the “Moderate Communities Feeds” permission, returns a list of all feed elements and comments in the community that have been flagged by community members.
+              responses: 
+                200: 
+            get: 
+              description: If the context user is a community moderator with the “Moderate Communities Feeds” permission, returns a list of all feed elements and comments in the community that have been flagged by community members. By default, returns 25 feed elements per page of results.
+              queryParameters: 
+                page: 
+                  description: |
+                    A generated token that indicates the view of feed elements in the feed. Page tokens are returned as part of the response body, in one of the URL parameters, such as nextPageURL, for example:
+                    "nextPageUrl": 
+                    "/services/data/v34.0/chatter/feeds/news/005D0000001GLowIAN/feed-elements?page=2011-03-30T17:34:50Z,0D5D0000000DSv4KAG"
+                pageSize: 
+                  description: "Specifies the number of elements per page. Valid values are between 1 and 100. If you don't specify a size, the default is 25."
+                  type: integer
+                  default: 25
+                  example: 5
+                q: 
+                  description: |
+                    One or more keywords to search for in the body and comments of feed elements in this feed.
+                    The search string can contain wildcards and must contain at least two characters that aren’t wildcards. See Wildcards.
+                sort: 
+                  description: |
+                    Specifies the order returned by the sort, such as by date created or last modified:
+                    CreatedDateDesc—Sorts by most recent creation date.
+                    LastModifiedDateDesc—Sorts by most recent activity.
+                    The default value is CreatedDescDate.
+                  enum: [ CreatedDescDate , LastModifiedDateDesc ]
+                  default: CreatedDescDate
+                  example: LastModifiedDateDesc
+              responses: 
+                200: 
+                  body: 
+                    application/json: 
+          /company: 
+            type: companyFeedURL
+            /feed-elements: 
+              type: companyFeedElements
+          /favorites/{userId}: 
+            type: feedsListofFavorites
+            /{favoriteId}: 
+              type: userFeedsFavorites
+              /feed-elements: 
+                type: userFavoritesFeedElements
+          /files/{userId}: 
+            type: filesFeedURL
+            /feed-elements: 
+              type: filesFeedElements
+          /filter/{userId}: 
+            type: listFilterFeedURLs
+            /{keyPrefix}: 
+              type: specificFilterFeedURL
+              /feed-elements: 
+                type: filterFeedElements
+          /groups/{userId}: 
+            type: groupsFeedURL
+            /feed-elements: 
+              type: groupsFeedElements
+          /news/{userId}: 
+            type: newsFeedURL
+            /feed-elements: 
+              type: newsFeedElements
+          /people/{userId}: 
+            type: peopleFeedURL
+            /feed-elements: 
+              type: peopleFeedElements
+          /record/{recordId}: 
+            type: recordFeedURL
+            /feed-elements: 
+              type: recordFeedElements
+          /to/{userId}: 
+            type: toFeedURL
+            /feed-elements: 
+              type: toFeedElements
+          /topics/{topicId}: 
+            type: topicsFeedURL
+            /feed-elements: 
+              type: topicsFeedElements
+          /user-profile/{userId}: 
+            type: userProfileFeedURL
+            /feed-elements: 
+              type: userProfileFeedElements
+        /files: 
+          /moderation: 
+            get: 
+              description: |
+                Files that are flagged in a community.
+                
+                If the context user is a community moderator, returns the files that have been flagged by community members.
+              queryParameters: 
+                page: 
+                  description: Specifies the number of the page you want returned.
+                  type: integer
+                pageSize: 
+                  description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
+                  type: integer
+                  default: 25
+                  example: 5
+                q: 
+                  description: A query string to filter the results. The string must contain at least two characters, not including wildcards. For information about wildcards, see Wildcards.
+              responses: 
+                200: 
+            head: 
+              description: |
+                Files that are flagged in a community.
+                
+                If the context user is a community moderator, returns the files that have been flagged by community members.
+              responses: 
+                200: 
+          /{fileId}: 
+            type: fileInformation
+            /moderation-flags: 
+              get: 
+                is: [ isFeedElementsCapability ]
+                description: |
+                  If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
+                  
+                  If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
+                responses: 
+                  200: 
+              post: 
+                is: [ isFeedElementsCapability ]
+                description: Create Moderation Flags​ on Files
+                body: 
+                  application/json: 
+                    schema: addModerationFlagRequest
+                    example: !include examples/moderationFlags​FilesRequest-example.json
+                responses: 
+                  201: 
+              delete: 
+                description: Delete Moderation Flags​ on Files
+                queryParameters: 
+                  userId: 
+                    description: The ID of the context user. If specified, removes the flag the user previously added to the file. If not specified and the context user is a moderator for the community, all flags on the file are removed.
+                responses: 
+                  204: 
+              head: 
+                description: |
+                  If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
+                  
+                  If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
+                responses: 
+                  200: 
+            /content: 
+              type: fileContent
+            /file-shares: 
+              type: fileShares
+              /link: 
+                type: filesSharesLink
+            /rendition: 
+              type: fileRendition
+          /batch/fileIds: 
+            type: fileInformationBatch
+        /users/{userId}/files: 
+          type: usersFilesGeneral
+        /group-membership-requests/{requestId}: 
+          type: groupMembershipRequestsPrivate
+        /group-memberships: 
+          /batch/{membershipIds}: 
+            type: batchGroupMemberships
+          /{membershipId}: 
+            type: groupMembershipsInformation
+        /group-records/{groupRecordId}: 
+          type: groupRecord
+        /groups: 
+          type: listOfGroups
+          /batch/{group_list}: 
+            type: batchGroupInformation
+          /{groupId}: 
+            type: groupInformation
+            /announcements: 
+              type: groupAnnouncements
+            /files: 
+              type: groupFiles
+            /members: 
+              type: groupMembers
+              /requests: 
+                type: groupMembersPrivate
+            /my-settings: 
+              type: groupSettings
+            /photo: 
+              type: groupPhoto
+            /records: 
+              type: groupRecords
+            /topics: 
+              type: groupTopics
+        /influence/thresholds: 
+          type: influenceResource
+  /organization: 
+    get: 
+      description: Information about the context user’s organization and settings.
+      responses: 
+        200: 
+    head: 
+      description: Information about the context user’s organization and settings.
+      responses: 
+        200: 
+  /dashboards/components/{componentId}/snapshots: 
+    post: 
+      description: Post a snapshot of a dashboard component to a user, group, or dashboard feed to help other users follow changes in the data.
+      body: 
+        application/json: 
+          schema: dashboardComponentSnapshotResourceRequest
+          example: !include examples/dashboardComponentSnapshotResourceRequest-example.json
+      responses: 
+        201: 
+  /datacloud: 
+    /companies/{companyId}: 
+      get: 
+        description: Returns the company fields for the specified companyId.
+        responses: 
+          200: 
+    /contacts/{contactId}: 
+      get: 
+        description: Returns the contact information for the specified contact.
+        responses: 
+          200: 
+    /orders: 
+      post: 
+        description: |
+          Purchases the contacts or companies for the listed IDs. The POST request can have either contact IDs or Company IDs not both. orderInput.
+          Purchase contacts or companies in a single POST request, and specify .
+        body: 
+          application/json: 
+            schema: datacloudOrdersRequest
+            example: !include examples/datacloudOrdersRequest-example.json
+        responses: 
+          201: 
+      /{orderId}: 
+        /contacts: 
           get: 
-            is: [ isFeedElementsCapability ]
             description: |
-              If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
-              If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
-            responses: 
-              200: 
-          post: 
-            is: [ isFeedElementsCapability ]
-            description: Create Moderation Flags​ on Comments.
-            body: 
-              application/json: 
-                schema: moderationFlags​CommentsRequest
-                example: !include examples/moderationFlags​CommentsRequest-example.json
-            responses: 
-              201: 
-          delete: 
-            description: Delete Moderation Flags​ on Comments.
+              Returns all the order information for a specific orderId for contacts.
+              Order information includes the orderId, the number of purchased records for the orderId, the URL for the order information, and details for the purchased contacts. The orderId must be for purchased contacts. A request with an orderId for purchased companies fails.
             queryParameters: 
-              userId: 
-                description: The ID of the context user. If specified, removes the flag the user previously added to the comment. If not specified and the context user is a moderator for the community, all flags on the comment are removed.
-            responses: 
-              204: 
-          head: 
-            description: |
-              If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
-              If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
+              page: 
+                description: The page number to be set as the URL for the current page.
+                type: integer
+              pageSize: 
+                description: The number of the page that you want returned. The default page size is set to 25.
+                type: integer
+                default: 25
+                example: 5
             responses: 
               200: 
-      /feed-elements: 
-        type: feedElementsCapabilityModeration
-      /files/{fileId}/moderation-flags: 
-        get: 
-          is: [ isFeedElementsCapability ]
-          description: |
-            If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
-            
-            If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
-          responses: 
-            200: 
-        post: 
-          is: [ isFeedElementsCapability ]
-          description: Create Moderation Flags​ on Files
+        /companies: 
+          get: 
+            description: The orderId must be for purchased companies. A request for a contact orderId fails. Order information includes the orderId, the number of purchased records for the order, information for the purchased companies, and the URLs for next and previous pages.
+            queryParameters: 
+              page: 
+                description: The page number to be set as the URL for the current page.
+                type: integer
+                required: true
+              pageSize: 
+                description: The number of the page that you want returned. The default page size is set to 25.
+                type: integer
+                default: 25
+                example: 5
+            responses: 
+              200: 
+    /usage/{userId}: 
+      get: 
+        description: Returns usage information for a Monthly user or a Listpool user.
+        responses: 
+          200: 
+  /content-hub/repositories: 
+    get: 
+      description: Get a list of files connect repositories.
+      queryParameters: 
+        canBrowseOnly: 
+          description: Retrieves only repositories that support browsing.
+          type: boolean
+          example: true
+        canSearchOnly: 
+          description: Retrieves only repositories that support searching.
+          type: boolean
+          example: true
+        page: 
+          description: Specifies the page token to be used to view a page of information. Page tokens are returned as part of the response class, such as currentPageToken or nextPageToken. If you pass in null, the first page is returned.
+          type: integer
+        pageSize: 
+          description: Specifies the number of items per page. Valid values are between 1 and 100. If you pass in null, the default is 25.
+          type: integer
+          default: 25
+          example: 5
+      responses: 
+        200: 
           body: 
             application/json: 
-              schema: moderationFlags​FilesRequest
-              example: !include examples/moderationFlags​FilesRequest-example.json
-          responses: 
-            201: 
-        delete: 
-          description: Delete Moderation Flags​ on Files
-          queryParameters: 
-            userId: 
-              description: The ID of the context user. If specified, removes the flag the user previously added to the file. If not specified and the context user is a moderator for the community, all flags on the file are removed.
-          responses: 
-            204: 
-        head: 
-          description: |
-            If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
-            
-            If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
+    /{repositoryId}: 
+      head: 
+        description: Get information about a files connect repository.
+        responses: 
+          200: 
+      get: 
+        description: Get information about a files connect repository.
+        responses: 
+          200: 
+            body: 
+              application/json: 
+      /files/{repositoryFileId}: 
+        get: 
+          description: Get information about a files connect repository file.
           responses: 
             200: 
-      /files/moderation: 
+              body: 
+                application/json: 
+        head: 
+          description: Get information about a files connect repository file.
+          responses: 
+            200: 
+        /content: 
+          head: 
+            description: Get the content of the repository file from the external system. The content is streamed as the body of the response.
+            responses: 
+              200: 
+          get: 
+            description: Get the content of the repository file from the external system. The content is streamed as the body of the response.
+            responses: 
+              200: 
+                body: 
+                  application/json: 
+      /folders/{repositoryFolderId}/items: 
         get: 
-          description: |
-            Files that are flagged in a community.
-            
-            If the context user is a community moderator, returns the files that have been flagged by community members.
+          description: Get information about the files and folders in a repository folder.
           queryParameters: 
             page: 
-              description: Specifies the number of the page you want returned.
+              description: Specifies the page token to be used to view a page of information. Page tokens are returned as part of the response class, such as currentPageToken or nextPageToken. If you pass in null, the first page is returned.
               type: integer
             pageSize: 
-              description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
+              description: Specifies the number of items per page. Valid values are between 1 and 100. If you pass in null, the default is 25.
               type: integer
               default: 25
               example: 5
-            q: 
-              description: A query string to filter the results. The string must contain at least two characters, not including wildcards. For information about wildcards, see Wildcards.
           responses: 
             200: 
+              body: 
+                application/json: 
         head: 
-          description: |
-            Files that are flagged in a community.
-            
-            If the context user is a community moderator, returns the files that have been flagged by community members.
+          description: Get information about the files and folders in a repository folder.
           responses: 
             200: 
-/{feedElementId}/capabilities/moderation: 
-  type: feedElementsCapabilityModeration
