@@ -33,6 +33,14 @@ schemas:
   - createGroupPhotoRequest: !include /schemas/createGroupPhotoRequest-schema.json
   - createGroupRecordRequest: !include /schemas/createGroupRecordRequest-schema.json
   - influenceResourceResponse: !include /schemas/influenceResourceResponse-schema.json
+  - createManagedTopicsRequest: !include /schemas/createManagedTopicsRequest-schema.json
+  - reoderManagedTopicsRequest: !include /schemas/reoderManagedTopicsRequest-schema.json
+  - mentionsCompletionsResponse: !include /schemas/mentionsCompletionsResponse-schema.json
+  - motifsResourceResponse: !include /schemas/motifsResourceResponse-schema.json
+  - batchMotifsResourceResponse: !include /schemas/batchMotifsResourceResponse-schema.json
+  - notificationsPushRequest: !include /schemas/notificationsPushRequest-schema.json
+  - recommendationDefinitionsRequest: !include /schemas/recommendationDefinitionsRequest-schema.json
+  - recommendationDefinitionModifyResquest: !include /schemas/recommendationDefinitionModifyResquest-schema.json
 resourceTypes:
   - feedElementsCapabilityEditability: !include resourceTypes/feedElementsCapabilityEditability.raml
   - fileShares: !include resourceTypes/fileShares.raml
@@ -44,13 +52,15 @@ resourceTypes:
   - groupRecords: !include resourceTypes/groupRecords.raml
   - userProfileFeedURL: !include resourceTypes/userProfileFeedURL.raml
   - feedElementsCapabilityQuestionAnswers: !include resourceTypes/feedElementsCapabilityQuestionAnswers.raml
+  - motifsResource: !include resourceTypes/motifsResource.raml
   - userFavoritesFeedElements: !include resourceTypes/userFavoritesFeedElements.raml
   - feedElementsCapabilities: !include resourceTypes/feedElementsCapabilities.raml
+  - batchMotifsResource: !include resourceTypes/batchMotifsResource.raml
   - fileInformationBatch: !include resourceTypes/fileInformationBatch.raml
   - groupPhoto: !include resourceTypes/groupPhoto.raml
   - actionLinkGroupDefinition: !include resourceTypes/actionLinkGroupDefinition.raml
-  - peopleFeedElements: !include resourceTypes/peopleFeedElements.raml
   - batchGroupMemberships: !include resourceTypes/batchGroupMemberships.raml
+  - peopleFeedElements: !include resourceTypes/peopleFeedElements.raml
   - announcementsResource: !include resourceTypes/announcementsResource.raml
   - filesFeedElements: !include resourceTypes/filesFeedElements.raml
   - feedElementsCapabilityRecommendations: !include resourceTypes/feedElementsCapabilityRecommendations.raml
@@ -68,6 +78,7 @@ resourceTypes:
   - bookmarksFeedElements: !include resourceTypes/bookmarksFeedElements.raml
   - feedElementsAssociatedActions: !include resourceTypes/feedElementsAssociatedActions.raml
   - feedElementsCapabilityTrackedChanges: !include resourceTypes/feedElementsCapabilityTrackedChanges.raml
+  - mentionsCompletions: !include resourceTypes/mentionsCompletions.raml
   - groupMembersPrivate: !include resourceTypes/groupMembersPrivate.raml
   - feedElementsCapabilityRecordSnapshot: !include resourceTypes/feedElementsCapabilityRecordSnapshot.raml
   - actionLinkDiagnosticInformation: !include resourceTypes/actionLinkDiagnosticInformation.raml
@@ -80,50 +91,55 @@ resourceTypes:
   - actionLink: !include resourceTypes/actionLink.raml
   - groupMembershipRequestsPrivate: !include resourceTypes/groupMembershipRequestsPrivate.raml
   - peopleFeedURL: !include resourceTypes/peopleFeedURL.raml
+  - mentionsValidations: !include resourceTypes/mentionsValidations.raml
   - fileRendition: !include resourceTypes/fileRendition.raml
-  - feedElementsCapabilityDashboardComponentSnapshot: !include resourceTypes/feedElementsCapabilityDashboardComponentSnapshot.raml
   - groupSettings: !include resourceTypes/groupSettings.raml
-  - feedElementsCapabilityBundleElements: !include resourceTypes/feedElementsCapabilityBundleElements.raml
+  - feedElementsCapabilityDashboardComponentSnapshot: !include resourceTypes/feedElementsCapabilityDashboardComponentSnapshot.raml
+  - questionAnswersSuggestionsResource: !include resourceTypes/questionAnswersSuggestionsResource.raml
   - filesSharesLink: !include resourceTypes/filesSharesLink.raml
+  - feedElementsCapabilityBundleElements: !include resourceTypes/feedElementsCapabilityBundleElements.raml
   - feedElementsCapabilityCanvas: !include resourceTypes/feedElementsCapabilityCanvas.raml
   - fileContent: !include resourceTypes/fileContent.raml
-  - usersFilesGeneral: !include resourceTypes/usersFilesGeneral.raml
   - feedElementsBatchGet: !include resourceTypes/feedElementsBatchGet.raml
+  - usersFilesGeneral: !include resourceTypes/usersFilesGeneral.raml
   - feedElementsApproval: !include resourceTypes/feedElementsApproval.raml
-  - listFilterFeedURLs: !include resourceTypes/listFilterFeedURLs.raml
   - filterFeedElements: !include resourceTypes/filterFeedElements.raml
+  - listFilterFeedURLs: !include resourceTypes/listFilterFeedURLs.raml
+  - recommendationDefinitions: !include resourceTypes/recommendationDefinitions.raml
+  - likesResource: !include resourceTypes/likesResource.raml
   - groupAnnouncements: !include resourceTypes/groupAnnouncements.raml
-  - feedElementsCapabilityModeration: !include resourceTypes/feedElementsCapabilityModeration.raml
   - groupsFeedElements: !include resourceTypes/groupsFeedElements.raml
-  - feedElementsCapabilityOrigin: !include resourceTypes/feedElementsCapabilityOrigin.raml
+  - feedElementsCapabilityModeration: !include resourceTypes/feedElementsCapabilityModeration.raml
   - feedElementsCapabilityEmailMessage: !include resourceTypes/feedElementsCapabilityEmailMessage.raml
+  - feedElementsCapabilityOrigin: !include resourceTypes/feedElementsCapabilityOrigin.raml
   - topicsFeedURL: !include resourceTypes/topicsFeedURL.raml
   - actionLinkGroupIDDefinition: !include resourceTypes/actionLinkGroupIDDefinition.raml
   - feedSingleElement: !include resourceTypes/feedSingleElement.raml
+  - influenceResource: !include resourceTypes/influenceResource.raml
   - userFeedsFavorites: !include resourceTypes/userFeedsFavorites.raml
   - feedsListofFavorites: !include resourceTypes/feedsListofFavorites.raml
-  - commentLikes: !include resourceTypes/commentLikes.raml
-  - feedElements: !include resourceTypes/feedElements.raml
   - actionLinkGroup: !include resourceTypes/actionLinkGroup.raml
-  - feedElementsBatch: !include resourceTypes/feedElementsBatch.raml
+  - feedElements: !include resourceTypes/feedElements.raml
+  - commentLikes: !include resourceTypes/commentLikes.raml
   - feedElementsCapabilitiesBanner: !include resourceTypes/feedElementsCapabilitiesBanner.raml
+  - feedElementsBatch: !include resourceTypes/feedElementsBatch.raml
   - groupMembers: !include resourceTypes/groupMembers.raml
   - feedsResource: !include resourceTypes/feedsResource.raml
   - topicsFeedElements: !include resourceTypes/topicsFeedElements.raml
   - newsFeedURL: !include resourceTypes/newsFeedURL.raml
-  - batchGroupInformation: !include resourceTypes/batchGroupInformation.raml
   - chatterResource: !include resourceTypes/chatterResource.raml
+  - batchGroupInformation: !include resourceTypes/batchGroupInformation.raml
   - filesFeedURL: !include resourceTypes/filesFeedURL.raml
   - fileInformation: !include resourceTypes/fileInformation.raml
   - toFeedURL: !include resourceTypes/toFeedURL.raml
   - companyFeedElements: !include resourceTypes/companyFeedElements.raml
   - groupsFeedURL: !include resourceTypes/groupsFeedURL.raml
-  - toFeedElements: !include resourceTypes/toFeedElements.raml
   - feedElementsCapabilityCommentsItems: !include resourceTypes/feedElementsCapabilityCommentsItems.raml
+  - toFeedElements: !include resourceTypes/toFeedElements.raml
   - feedElementsCapabilityEnhancedLink: !include resourceTypes/feedElementsCapabilityEnhancedLink.raml
-  - feedElementsCapabilityContent: !include resourceTypes/feedElementsCapabilityContent.raml
   - feedElementsCapabilityChatterLikes: !include resourceTypes/feedElementsCapabilityChatterLikes.raml
-  - influenceResource: !include resourceTypes/influenceResource.raml
+  - feedElementsCapabilityContent: !include resourceTypes/feedElementsCapabilityContent.raml
+  - recommendationDefinition: !include resourceTypes/recommendationDefinition.raml
 traits:
   - isCommentLikes: !include traits/isCommentLikes.raml
   - isFeedElementsCapability: !include traits/isFeedElementsCapability.raml
@@ -381,6 +397,12 @@ traits:
         type: groupTopics
   /influence/thresholds: 
     type: influenceResource
+  /likes/{likeId}: 
+    type: likesResource
+  /mentions/completions: 
+    type: mentionsCompletions
+  /mentions/validations: 
+    type: mentionsValidations
 /connect: 
   get: 
     description: A directory of the organization and community resources available to the context user.
@@ -786,6 +808,108 @@ traits:
               type: groupTopics
         /influence/thresholds: 
           type: influenceResource
+        /likes/{likeId}: 
+          type: likesResource
+        /mentions/completions: 
+          type: mentionsCompletions
+        /mentions/validations: 
+          type: mentionsValidations
+      /managed-topics: 
+        get: 
+          description: Get all the managed topics for a community.
+          queryParameters: 
+            managedTopic​Type: 
+              description: |
+                Type of managed topic.
+                Featured—Topics that are featured, for example, on the community home page, but don’t provide overall navigation.
+                Navigational—Topics that display in a navigational menu in the community.
+                A topic can be associated with up to two managed topic types, so a topic can be both a Featured topic and a Navigational topic.
+              enum: [ Navigational , Featured ]
+          responses: 
+            200: 
+              body: 
+                application/json: 
+        post: 
+          description: |
+            Create a managed topic.
+            Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can create or reorder managed topics.
+          queryParameters: 
+            managedTopic​Type: 
+              description: |
+                Type of managed topic.
+                Featured—Topics that are featured, for example, on the community home page, but don’t provide overall navigation.
+                Navigational—Topics that display in a navigational menu in the community.
+                A topic can be associated with up to two managed topic types, so a topic can be both a Featured topic and a Navigational topic.
+                
+                You can create up to 25 managed topics per managedTopicType.
+              required: true
+              enum: [ Navigational , Featured ]
+            name: 
+              description: |
+                Name of the managed topic.
+                Required for new topics
+                You must specify either name or recordId. You can’t specify both.
+              required: true
+            recordId: 
+              description: |
+                ID of the record to become a managed topic.
+                In version 32.0, recordId must be a topic ID.
+                Required if the Name property isn’t used
+                You must specify either name or recordId. You can’t specify both.
+              required: true
+          body: 
+            application/json: 
+              schema: createManagedTopicsRequest
+              example: !include examples/createManagedTopicsRequest-example.json
+          responses: 
+            201: 
+              body: 
+                application/json: 
+        patch: 
+          description: |
+            Reorder managed topics.
+            Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can create or reorder managed topics.
+          body: 
+            application/json: 
+              schema: reoderManagedTopicsRequest
+              example: !include examples/reoderManagedTopicsRequest-example.json
+          responses: 
+            200: 
+              body: 
+                application/json: 
+        head: 
+          description: Get all the managed topics for a community.
+          responses: 
+            200: 
+        /{managedTopicId}: 
+          head: 
+            description: |
+              Get information about topic in a community.
+            responses: 
+              200: 
+          get: 
+            description: Get information about topic in a community.
+            responses: 
+              200: 
+                body: 
+                  application/json: 
+          delete: 
+            description: |
+              Delete a managed topic in a community.
+              Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can delete managed topics.
+            responses: 
+              204: 
+      /motifs: 
+        /{idOrPrefix}: 
+          type: motifsResource
+        /batch/{idOrPrefixList}: 
+          type: batchMotifsResource
+      /question-and-answers/suggestions: 
+        type: questionAnswersSuggestionsResource
+      /recommendation-definitions: 
+        type: recommendationDefinitions
+        /{recommendationDefinitionId}: 
+          type: recommendationDefinition
   /organization: 
     get: 
       description: Information about the context user’s organization and settings.
@@ -940,3 +1064,38 @@ traits:
           description: Get information about the files and folders in a repository folder.
           responses: 
             200: 
+  /motifs: 
+    /{idOrPrefix}: 
+      type: motifsResource
+    /batch/{idOrPrefixList}: 
+      type: batchMotifsResource
+  /notifications/push: 
+    post: 
+      description: Send a mobile push notification to connected apps on users’ devices. This resource is only accessible when the session is established with a connected app that is developed in the same organization or installed in the same package as the recipient’s connected app.
+      queryParameters: 
+        appName: 
+          description: The API name of the connected app that the push notification is sent to.
+          required: true
+        namespace: 
+          description: |
+            The namespace of the connected app that the push notification is sent to.
+            Required if the namespace is set
+          required: true
+        payload: 
+          description: The push notification payload in JSON format.
+          required: true
+        userIds: 
+          description: The push notification recipient user ids.
+          required: true
+      body: 
+        application/json: 
+          schema: notificationsPushRequest
+          example: !include examples/notificationsPushRequest-example.json
+      responses: 
+        200: 
+  /question-and-answers/suggestions: 
+    type: questionAnswersSuggestionsResource
+  /recommendation-definitions: 
+    type: recommendationDefinitions
+    /{recommendationDefinitionId}: 
+      type: recommendationDefinition
