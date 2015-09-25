@@ -444,6 +444,9 @@ traits:
   - isCommentLikes: !include traits/isCommentLikes.raml
   - isFeedElementsCapability: !include traits/isFeedElementsCapability.raml
   - isListOfCommunities: !include traits/isListOfCommunities.raml
+  - sortedPage: !include traits/sortedPage.raml
+  - filteredPage: !include traits/filteredPage.raml
+  - pagination: !include traits/pagination.raml
 /chatter: 
   type: chatterResource
   /announcements/{announcementId}: 
@@ -664,19 +667,8 @@ traits:
         responses: 
           200: 
       get: 
+        is: [ filteredPage ]
         description: Get information about the contents of a folder.
-        queryParameters: 
-          filter: 
-            description: Specifies a filter for items within a folder. The value IsInMyFileSync filters out the items that aren’t synced in a folder.
-          page: 
-            description: An integer specifying a page of items. The default value is 0, which returns the first page.
-            type: integer
-            default: 0
-          pageSize: 
-            description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
-            type: integer
-            default: 25
-            example: 5
         responses: 
           200: 
             body: 
@@ -912,6 +904,7 @@ traits:
               responses: 
                 200: 
             get: 
+              is: [ sortedPage ]
               description: Returns a list of all feed elements associated with any managed topic in the community.
               queryParameters: 
                 filter: 
@@ -929,29 +922,6 @@ traits:
                     - SolvedQuestions
                     - AllQuestions
                   example: AllQuestions
-                page: 
-                  description: |
-                    A generated token that indicates the view of feed elements in the feed. Page tokens are returned as part of the response body, in one of the URL parameters, such as nextPageURL, for example:
-                    "nextPageUrl": 
-                    "/services/data/v34.0/chatter/feeds/news/005D0000001GLowIAN/feed-elements?page=2011-03-30T17:34:50Z,0D5D0000000DSv4KAG"
-                pageSize: 
-                  description: "Specifies the number of elements per page. Valid values are between 1 and 100. If you don't specify a size, the default is 25."
-                  type: integer
-                  default: 25
-                  example: 5
-                q: 
-                  description: |
-                    One or more keywords to search for in the body and comments of feed elements in this feed.
-                    The search string can contain wildcards and must contain at least two characters that aren’t wildcards. See Wildcards.
-                sort: 
-                  description: |
-                    Specifies the order returned by the sort, such as by date created or last modified:
-                    CreatedDateDesc—Sorts by most recent creation date.
-                    LastModifiedDateDesc—Sorts by most recent activity.
-                    The default value is CreatedDescDate.
-                  enum: [ CreatedDescDate , LastModifiedDateDesc ]
-                  default: CreatedDescDate
-                  example: LastModifiedDateDesc
               responses: 
                 200: 
                   body: 
@@ -962,31 +932,8 @@ traits:
               responses: 
                 200: 
             get: 
+              is: [ sortedPage ]
               description: If the context user is a community moderator with the “Moderate Communities Feeds” permission, returns a list of all feed elements and comments in the community that have been flagged by community members. By default, returns 25 feed elements per page of results.
-              queryParameters: 
-                page: 
-                  description: |
-                    A generated token that indicates the view of feed elements in the feed. Page tokens are returned as part of the response body, in one of the URL parameters, such as nextPageURL, for example:
-                    "nextPageUrl": 
-                    "/services/data/v34.0/chatter/feeds/news/005D0000001GLowIAN/feed-elements?page=2011-03-30T17:34:50Z,0D5D0000000DSv4KAG"
-                pageSize: 
-                  description: "Specifies the number of elements per page. Valid values are between 1 and 100. If you don't specify a size, the default is 25."
-                  type: integer
-                  default: 25
-                  example: 5
-                q: 
-                  description: |
-                    One or more keywords to search for in the body and comments of feed elements in this feed.
-                    The search string can contain wildcards and must contain at least two characters that aren’t wildcards. See Wildcards.
-                sort: 
-                  description: |
-                    Specifies the order returned by the sort, such as by date created or last modified:
-                    CreatedDateDesc—Sorts by most recent creation date.
-                    LastModifiedDateDesc—Sorts by most recent activity.
-                    The default value is CreatedDescDate.
-                  enum: [ CreatedDescDate , LastModifiedDateDesc ]
-                  default: CreatedDescDate
-                  example: LastModifiedDateDesc
               responses: 
                 200: 
                   body: 
@@ -1042,19 +989,12 @@ traits:
         /files: 
           /moderation: 
             get: 
+              is: [ pagination ]
               description: |
                 Files that are flagged in a community.
                 
                 If the context user is a community moderator, returns the files that have been flagged by community members.
               queryParameters: 
-                page: 
-                  description: Specifies the number of the page you want returned.
-                  type: integer
-                pageSize: 
-                  description: "Specifies the number of items per page. Valid values are from 1 through 100. If you don't specify a size, the default is 25."
-                  type: integer
-                  default: 25
-                  example: 5
                 q: 
                   description: A query string to filter the results. The string must contain at least two characters, not including wildcards. For information about wildcards, see Wildcards.
               responses: 
@@ -1348,18 +1288,10 @@ traits:
       /{orderId}: 
         /contacts: 
           get: 
+            is: [ pagination ]
             description: |
               Returns all the order information for a specific orderId for contacts.
               Order information includes the orderId, the number of purchased records for the orderId, the URL for the order information, and details for the purchased contacts. The orderId must be for purchased contacts. A request with an orderId for purchased companies fails.
-            queryParameters: 
-              page: 
-                description: The page number to be set as the URL for the current page.
-                type: integer
-              pageSize: 
-                description: The number of the page that you want returned. The default page size is set to 25.
-                type: integer
-                default: 25
-                example: 5
             responses: 
               200: 
                 body: 
@@ -1393,6 +1325,7 @@ traits:
                 schema: datacloudPurchaseUsageResponse
   /content-hub/repositories: 
     get: 
+      is: [ pagination ]
       description: Get a list of files connect repositories.
       queryParameters: 
         canBrowseOnly: 
@@ -1403,14 +1336,6 @@ traits:
           description: Retrieves only repositories that support searching.
           type: boolean
           example: true
-        page: 
-          description: Specifies the page token to be used to view a page of information. Page tokens are returned as part of the response class, such as currentPageToken or nextPageToken. If you pass in null, the first page is returned.
-          type: integer
-        pageSize: 
-          description: Specifies the number of items per page. Valid values are between 1 and 100. If you pass in null, the default is 25.
-          type: integer
-          default: 25
-          example: 5
       responses: 
         200: 
           body: 
@@ -1453,16 +1378,8 @@ traits:
                   application/json: 
       /folders/{repositoryFolderId}/items: 
         get: 
+          is: [ pagination ]
           description: Get information about the files and folders in a repository folder.
-          queryParameters: 
-            page: 
-              description: Specifies the page token to be used to view a page of information. Page tokens are returned as part of the response class, such as currentPageToken or nextPageToken. If you pass in null, the first page is returned.
-              type: integer
-            pageSize: 
-              description: Specifies the number of items per page. Valid values are between 1 and 100. If you pass in null, the default is 25.
-              type: integer
-              default: 25
-              example: 5
           responses: 
             200: 
               body: 
