@@ -2,6 +2,9 @@ get:
   description: Get information about a comment.
   responses: 
     200: 
+      body: 
+        application/json: 
+          schema: commentResponse
 delete: 
   description: Delete a comment.
   responses: 
@@ -12,3 +15,6 @@ patch:
     application/json: 
   responses: 
     200: 
+      body: 
+        application/json: 
+          schema: commentResponse

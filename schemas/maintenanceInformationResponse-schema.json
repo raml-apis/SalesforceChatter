@@ -1,0 +1,43 @@
+{
+  "required": true,
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "maintenanceTitle": {
+      "type": "string",
+      "required": false
+    },
+    "maintenanceType": {
+      "type": "string",
+      "required": false
+    },
+    "messageEffectiveTime": {
+      "type": "date",
+      "required": false
+    },
+    "messageExpirationTime": {
+      "type": "date",
+      "required": false
+    },
+    "scheduledEndDowntime": {
+      "type": "date",
+      "required": false
+    },
+    "scheduledEndMaintenanceTime": {
+      "type": "date",
+      "required": false
+    },
+    "scheduledStartDowntime": {
+      "type": "date",
+      "required": false
+    },
+    "scheduledStartMaintenanceTime": {
+      "type": "date",
+      "required": false
+    }
+  }
+}

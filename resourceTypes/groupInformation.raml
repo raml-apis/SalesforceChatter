@@ -10,6 +10,7 @@ get:
     200: 
       body: 
         application/json: 
+          schema: groupDetailResponse
 patch: 
   description: Update information about a group.
   queryParameters: 
@@ -53,12 +54,13 @@ patch:
       example: PublicAccess
   body: 
     application/json: 
-      schema: updateInformationOboutGroupRequest
+      schema: groupInputRequest
       example: !include examples/updateInformationOboutGroupRequest-example.json
   responses: 
     200: 
       body: 
         application/json: 
+          schema: groupDetailResponse
 delete: 
   description: Delete information about a group.
   responses: 

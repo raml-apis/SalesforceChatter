@@ -10,7 +10,7 @@ post:
         User already has a membership request for this group
       body: 
         application/json: 
-          schema: createGroupMembersPrivateResponse
+          schema: groupMembershipRequestResponse
           example: !include examples/createGroupMembersPrivateResponse-example.json
     204: 
       description: User is already a member of this group.
@@ -40,5 +40,5 @@ get:
     200: 
       body: 
         application/json: 
-          schema: groupMembersPrivateResponse
+          schema: groupMembershipRequestCollectionResponse
           example: !include examples/groupMembersPrivateResponse-example.json

@@ -4,6 +4,7 @@ get:
     200: 
       body: 
         application/json: 
+          schema: groupMembershipRequestResponse
 head: 
   description: Get information about a request to join a private group. Get the value of requestId from the Group Membership Request response from a POST request to /chatter/groups/groupId/members/requests.
   responses: 
@@ -23,7 +24,9 @@ patch:
       enum: [ Accepted , Declined ]
   body: 
     application/json: 
+      schema: groupMembershipRequestUpdateRequest
   responses: 
     200: 
       body: 
         application/json: 
+          schema: groupMembershipRequestResponse

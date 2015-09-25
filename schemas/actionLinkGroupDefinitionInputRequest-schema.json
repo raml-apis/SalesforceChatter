@@ -1,0 +1,129 @@
+{
+  "required": true,
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "type": "object",
+  "properties": {
+    "actionLinks": {
+      "type": "array",
+      "required": false,
+      "items": [{
+        "type": "object",
+        "required": false,
+        "properties": {
+          "{!actionLinkId}": {
+            "type": "the id of the action link the user executed.",
+            "required": false
+          },
+          "{!actionLinkGroupId}": {
+            "type": "the id of the action link group containing the action link the user executed.",
+            "required": false
+          },
+          "{!communityId}": {
+            "type": "the id of the community in which the user executed the action link. the value for your internal organization is the empty key \"000000000000000000\".",
+            "required": false
+          },
+          "{!communityUrl}": {
+            "type": "the url of the community in which the user executed the action link. the value for your internal organization is empty string \"\".",
+            "required": false
+          },
+          "{!orgId}": {
+            "type": "the id of the organization in which the user executed the action link.",
+            "required": false
+          },
+          "{!userId}": {
+            "type": "the id of the user that executed the action link.",
+            "required": false
+          },
+          "actionType": {
+            "type": "string",
+            "required": false
+          },
+          "actionUrl": {
+            "type": "string",
+            "required": false
+          },
+          "excludedUserId": {
+            "type": "string",
+            "required": false
+          },
+          "groupDefault": {
+            "type": "boolean",
+            "required": false
+          },
+          "headers": {
+            "type": "array",
+            "required": false,
+            "items": [{
+              "type": "object",
+              "required": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "required": false
+                },
+                "value": {
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }]
+          },
+          "labelKey": {
+            "type": "string",
+            "required": false
+          },
+          "method": {
+            "type": "string",
+            "required": false
+          },
+          "requestBody": {
+            "type": "string",
+            "required": false
+          },
+          "requiresConfirmation": {
+            "type": "boolean",
+            "required": false
+          },
+          "userId": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }]
+    },
+    "category": {
+      "type": "string",
+      "required": false
+    },
+    "executionsAllowed": {
+      "type": "string",
+      "required": false
+    },
+    "expirationDate": {
+      "type": "date",
+      "required": false
+    },
+    "templateBindings": {
+      "type": "array",
+      "required": false,
+      "items": [{
+        "type": "object",
+        "required": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "required": false
+          },
+          "value": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }]
+    },
+    "templateId": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
