@@ -16,7 +16,7 @@
       "required": false
     },
     "purchaseDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "url": {

@@ -119,7 +119,7 @@
             "required": false
           },
           "updatedDate": {
-            "type": "date",
+            "type": "string",
             "required": false
           }
         }

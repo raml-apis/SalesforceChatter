@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "data": {
-      "type": "various",
+      "type": "string",
       "required": false
     },
     "summary": {

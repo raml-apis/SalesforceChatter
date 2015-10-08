@@ -125,7 +125,7 @@
                 }
               },
               "contentModifiedDate": {
-                "type": "date",
+                "type": "string",
                 "required": false
               },
               "contentUrl": {
@@ -187,7 +187,7 @@
                 }
               },
               "modifiedDate": {
-                "type": "date",
+                "type": "string",
                 "required": false
               },
               "motif": {
@@ -379,7 +379,7 @@
                         }
                       },
                       "reputationPoints": {
-                        "type": "double",
+                        "type": "number",
                         "required": false
                       },
                       "url": {
@@ -487,7 +487,7 @@
             "required": false,
             "properties": {
               "createdDate": {
-                "type": "date",
+                "type": "string",
                 "required": false
               },
               "id": {
@@ -499,7 +499,7 @@
                 "required": false
               },
               "modifiedDate": {
-                "type": "date",
+                "type": "string",
                 "required": false
               },
               "motif": {

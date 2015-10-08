@@ -23,11 +23,15 @@ get:
         LastModifiedDateDesc—Sorts by most recent activity.
   responses: 
     200: 
+      application/json: 
+        schema: feedElementPageResponse
 post: 
   description: Post feed elements in an organization.
   body: 
     application/json: 
-      schema: feedElementsPostSearchRequest
+      schema: feedItemInputRequest
       example: !include examples/feedElementsPostSearchRequest-example.json
   responses: 
     200: 
+      application/json: 
+        schema: feedItemResponse

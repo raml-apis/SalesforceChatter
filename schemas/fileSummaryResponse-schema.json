@@ -110,7 +110,7 @@
       }
     },
     "contentModifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "contentUrl": {
@@ -172,7 +172,7 @@
       }
     },
     "modifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "motif": {
@@ -364,7 +364,7 @@
               }
             },
             "reputationPoints": {
-              "type": "double",
+              "type": "number",
               "required": false
             },
             "url": {

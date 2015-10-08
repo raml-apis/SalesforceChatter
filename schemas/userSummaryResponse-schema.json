@@ -140,7 +140,7 @@
           }
         },
         "reputationPoints": {
-          "type": "double",
+          "type": "number",
           "required": false
         },
         "url": {

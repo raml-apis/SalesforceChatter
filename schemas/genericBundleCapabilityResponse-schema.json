@@ -16,7 +16,7 @@
           "required": false
         },
         "elements": {
-          "type": "",
+          "type": "string",
           "required": false
         },
         "isModifiedToken": {

@@ -22,11 +22,11 @@
       "required": false
     },
     "subject": {
-      "type": "depends",
+      "type": "string",
       "required": false
     },
     "subscriber": {
-      "type": "depends",
+      "type": "string",
       "required": false
     },
     "url": {

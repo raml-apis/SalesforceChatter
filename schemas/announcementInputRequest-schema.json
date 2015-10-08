@@ -12,7 +12,7 @@
       }}
     },
     "expirationDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     }
   }

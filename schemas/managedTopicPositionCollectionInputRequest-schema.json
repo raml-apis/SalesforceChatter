@@ -22,23 +22,23 @@
       }]
     },
     "ManagedTopicA": {
-      "type": "1",
+      "type": "string",
       "required": false
     },
     "ManagedTopicB": {
-      "type": "3",
+      "type": "string",
       "required": false
     },
     "ManagedTopicC": {
-      "type": "4",
+      "type": "string",
       "required": false
     },
     "ManagedTopicD": {
-      "type": "0",
+      "type": "string",
       "required": false
     },
     "ManagedTopicE": {
-      "type": "2",
+      "type": "string",
       "required": false
     }
   }

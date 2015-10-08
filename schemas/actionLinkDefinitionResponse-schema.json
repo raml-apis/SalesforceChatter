@@ -8,7 +8,7 @@
       "required": false
     },
     "createdDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "excludedUserId": {
@@ -54,7 +54,7 @@
       "required": false
     },
     "modifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "requestBody": {

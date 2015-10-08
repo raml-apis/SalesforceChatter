@@ -8,7 +8,7 @@
       "required": false
     },
     "threshold": {
-      "type": "double",
+      "type": "number",
       "required": false
     }
   }

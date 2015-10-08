@@ -15,7 +15,7 @@
         "required": false,
         "properties": {
           "result": {
-            "type": "the type depends on the object type of the batch. important if the result is an error, the type is a collection.",
+            "type": "string",
             "required": false
           },
           "statusCode": {

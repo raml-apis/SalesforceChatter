@@ -16,7 +16,7 @@
       "required": false
     },
     "createdDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "description": {
@@ -48,7 +48,7 @@
       "required": false
     },
     "modifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "motif": {

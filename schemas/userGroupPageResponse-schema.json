@@ -23,7 +23,7 @@
             "required": false,
             "properties": {
               "expirationDate": {
-                "type": "date",
+                "type": "string",
                 "required": false
               },
               "feedElement": {
@@ -31,11 +31,11 @@
                 "required": false,
                 "properties": {
                   "actor": {
-                    "type": "depends on parent",
+                    "type": "string",
                     "required": false
                   },
                   "attachment": {
-                    "type": "depends on type",
+                    "type": "string",
                     "required": false
                   },
                   "body": {
@@ -125,7 +125,7 @@
                                 "required": false
                               },
                               "modifiedDate": {
-                                "type": "date",
+                                "type": "string",
                                 "required": false
                               },
                               "platformActions": {
@@ -354,7 +354,7 @@
                                               }
                                             },
                                             "reputationPoints": {
-                                              "type": "double",
+                                              "type": "number",
                                               "required": false
                                             },
                                             "url": {
@@ -398,7 +398,7 @@
                                       "required": false
                                     },
                                     "modifiedDate": {
-                                      "type": "date",
+                                      "type": "string",
                                       "required": false
                                     },
                                     "platformActionGroup": {
@@ -503,7 +503,7 @@
                                 "required": false
                               },
                               "elements": {
-                                "type": "",
+                                "type": "string",
                                 "required": false
                               },
                               "isModifiedToken": {
@@ -900,7 +900,7 @@
                                     "properties": {}
                                   },
                                   "reputationPoints": {
-                                    "type": "double",
+                                    "type": "number",
                                     "required": false
                                   },
                                   "url": {
@@ -936,7 +936,7 @@
                             }
                           },
                           "createdDate": {
-                            "type": "date",
+                            "type": "string",
                             "required": false
                           },
                           "eventType": {
@@ -1192,7 +1192,7 @@
                                 "required": false,
                                 "properties": {
                                   "attachment": {
-                                    "type": "depends on type of comment",
+                                    "type": "string",
                                     "required": false
                                   },
                                   "body": {
@@ -1574,7 +1574,7 @@
                                             }
                                           },
                                           "lastEditedDate": {
-                                            "type": "date",
+                                            "type": "string",
                                             "required": false
                                           },
                                           "latestRevision": {
@@ -1847,7 +1847,7 @@
                                 "required": false,
                                 "properties": {
                                   "attachment": {
-                                    "type": "depends on type of comment",
+                                    "type": "string",
                                     "required": false
                                   },
                                   "body": {
@@ -2073,7 +2073,7 @@
                               "required": false
                             },
                             "lastRefreshDate": {
-                              "type": "date",
+                              "type": "string",
                               "required": false
                             },
                             "lastRefreshDateDisplayText": {
@@ -2191,7 +2191,7 @@
                             "properties": {}
                           },
                           "lastEditedDate": {
-                            "type": "date",
+                            "type": "string",
                             "required": false
                           },
                           "latestRevision": {
@@ -2344,7 +2344,7 @@
                                   "required": false
                                 },
                                 "voteCountRatio": {
-                                  "type": "double",
+                                  "type": "number",
                                   "required": false
                                 }
                               }
@@ -2475,7 +2475,7 @@
                             "required": false,
                             "properties": {
                               "attachment": {
-                                "type": "depends on type of comment",
+                                "type": "string",
                                 "required": false
                               },
                               "body": {
@@ -2877,7 +2877,7 @@
                                     "required": false
                                   },
                                   "fields": {
-                                    "type": "",
+                                    "type": "string",
                                     "required": false
                                   },
                                   "heading": {
@@ -3208,11 +3208,11 @@
                     }
                   },
                   "originalFeedItemActor": {
-                    "type": "depends on type",
+                    "type": "string",
                     "required": false
                   },
                   "parent": {
-                    "type": "depends on type",
+                    "type": "string",
                     "required": false
                   },
                   "photoUrl": {
@@ -3357,11 +3357,11 @@
             "required": false
           },
           "lastFeedElementPostDate": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "lastFeedItemPostDate": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "memberCount": {

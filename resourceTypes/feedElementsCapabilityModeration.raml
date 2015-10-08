@@ -4,6 +4,7 @@ get:
     200: 
       body: 
         application/json: 
+          schema: moderationCapabilityResponse
 post: 
   description: Add a moderation flag to a feed element.
   body: 
@@ -14,6 +15,7 @@ post:
     200: 
       body: 
         application/json: 
+          schema: moderationCapabilityResponse
 head: 
   description: "Get information about a feed element's moderation capability."
   responses: 

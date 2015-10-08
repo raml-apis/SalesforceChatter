@@ -146,7 +146,7 @@
               "required": false
             },
             "fields": {
-              "type": "",
+              "type": "string",
               "required": false
             },
             "heading": {

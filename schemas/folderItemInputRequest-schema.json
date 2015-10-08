@@ -8,7 +8,7 @@
       "required": false,
       "properties": {
         "contentModifiedDate": {
-          "type": "date",
+          "type": "string",
           "required": false
         },
         "desc": {

@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "createdDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "id": {
@@ -16,7 +16,7 @@
       "required": false
     },
     "modifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "motif": {

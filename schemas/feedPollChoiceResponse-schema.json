@@ -20,7 +20,7 @@
       "required": false
     },
     "voteCountRatio": {
-      "type": "double",
+      "type": "number",
       "required": false
     }
   }

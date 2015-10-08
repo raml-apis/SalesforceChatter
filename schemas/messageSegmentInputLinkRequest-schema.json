@@ -8,7 +8,7 @@
       "required": false
     },
     "url": {
-      "type": "url",
+      "type": "string",
       "required": false
     }
   }

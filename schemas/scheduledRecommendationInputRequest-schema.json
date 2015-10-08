@@ -16,19 +16,19 @@
       "required": false
     },
     "ScheduledRecommendationA": {
-      "type": "1",
+      "type": "string",
       "required": false
     },
     "ScheduledRecommendationB": {
-      "type": "3",
+      "type": "string",
       "required": false
     },
     "ScheduledRecommendationC": {
-      "type": "4",
+      "type": "string",
       "required": false
     },
     "ScheduledRecommendationD": {
-      "type": "2",
+      "type": "string",
       "required": false
     }
   }

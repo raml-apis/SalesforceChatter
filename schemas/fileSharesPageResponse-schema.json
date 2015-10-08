@@ -29,7 +29,7 @@
         "required": false,
         "properties": {
           "entity": {
-            "type": "depends on sharing",
+            "type": "string",
             "required": false
           },
           "sharingType": {

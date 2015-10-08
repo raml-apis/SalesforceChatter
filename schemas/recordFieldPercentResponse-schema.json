@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "value": {
-      "type": "double",
+      "type": "number",
       "required": false
     },
     "label": {

@@ -15,7 +15,7 @@
             "required": false
           },
           "createdDate": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "excludedUserId": {
@@ -61,7 +61,7 @@
             "required": false
           },
           "modifiedDate": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "requestBody": {
@@ -92,7 +92,7 @@
       "required": false
     },
     "createdDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "executionsAllowed": {
@@ -100,7 +100,7 @@
       "required": false
     },
     "expirationDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "id": {
@@ -108,7 +108,7 @@
       "required": false
     },
     "modifiedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "templateId": {

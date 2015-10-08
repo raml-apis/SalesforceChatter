@@ -7,10 +7,12 @@ post:
       description: The comment text.
   body: 
     application/json: 
+      schema: ""
   responses: 
     200: 
       body: 
         application/json: 
+          schema: commentResponse
 get: 
   description: Access comments for a feed element.
   queryParameters: 
@@ -25,3 +27,4 @@ get:
     200: 
       body: 
         application/json: 
+          schema: commentPageResponse

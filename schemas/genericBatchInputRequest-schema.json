@@ -16,7 +16,7 @@
       "required": false
     },
     "richInput": {
-      "type": "",
+      "type": "string",
       "required": false
     },
     "url": {

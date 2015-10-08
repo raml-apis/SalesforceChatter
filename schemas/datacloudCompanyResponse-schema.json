@@ -38,7 +38,7 @@
       }
     },
     "annualRevenue": {
-      "type": "double",
+      "type": "number",
       "required": false
     },
     "companyId": {
@@ -132,7 +132,7 @@
       "required": false
     },
     "updatedDate": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "website": {

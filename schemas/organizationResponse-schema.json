@@ -133,27 +133,27 @@
             "required": false
           },
           "messageEffectiveTime": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "messageExpirationTime": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "scheduledEndDowntime": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "scheduledEndMaintenanceTime": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "scheduledStartDowntime": {
-            "type": "date",
+            "type": "string",
             "required": false
           },
           "scheduledStartMaintenanceTime": {
-            "type": "date",
+            "type": "string",
             "required": false
           }
         }
@@ -256,7 +256,7 @@
           "required": false,
           "properties": {
             "gmtOffset": {
-              "type": "double",
+              "type": "number",
               "required": false
             },
             "name": {

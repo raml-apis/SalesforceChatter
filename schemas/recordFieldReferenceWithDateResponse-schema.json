@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "dateValue": {
-      "type": "date",
+      "type": "string",
       "required": false
     },
     "label": {
