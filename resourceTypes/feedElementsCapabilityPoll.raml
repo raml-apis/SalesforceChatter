@@ -1,17 +1,16 @@
-get: 
+get:
   description: Access a poll for a feed element.
-  responses: 
-    200: 
-      body: 
-        application/json: 
+  responses:
+    200:
+      body:
+        application/json:
           schema: pollCapabilityResponse
-patch: 
+patch:
   description: Create a poll, or vote on a poll.
-  body: 
+  body:
     application/json: 
-      schema: ""
-  responses: 
-    200: 
-      body: 
-        application/json: 
+  responses:
+    200:
+      body:
+        application/json:
           schema: pollCapabilityResponse
