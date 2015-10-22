@@ -10,7 +10,6 @@ schemas:
   - genericBatchCollectionInputResponse: !include schemas/genericBatchCollectionInputResponse-schema.json
   - chatterResource: !include schemas/chatterResource-schema.json
   - addModerationFlagRequest: !include schemas/addModerationFlagRequest-schema.json
-  - moderationFlagsCommentsRequest: !include schemas/moderationFlags​CommentsRequest-schema.json
   - dashboardComponentSnapshotResourceRequest: !include schemas/dashboardComponentSnapshotResourceRequest-schema.json
   - datacloudOrdersRequest: !include schemas/datacloudOrdersRequest-schema.json
   - feedElementsPostSearchRequest: !include schemas/feedElementsPostSearchRequest-schema.json
@@ -23,7 +22,6 @@ schemas:
   - fileShareRequest: !include schemas/fileShareRequest-schema.json
   - addingFileInFolderResponse: !include schemas/addingFileInFolderResponse-schema.json
   - updateGroupMemberRoleRequest: !include schemas/updateGroupMemberRoleRequest-schema.json
-  - batchGroupMembershipsResponse: !include schemas/batchGroupMembershipsResponse-schema.json
   - createGroupInTheOrganizationRequest: !include schemas/createGroupInTheOrganizationRequest-schema.json
   - updateInformationOboutGroupRequest: !include schemas/updateInformationOboutGroupRequest-schema.json
   - createGroupAnnouncementRequest: !include schemas/createGroupAnnouncementRequest-schema.json
@@ -40,11 +38,9 @@ schemas:
   - notificationsPushRequest: !include schemas/notificationsPushRequest-schema.json
   - recommendationDefinitionsRequest: !include schemas/recommendationDefinitionsRequest-schema.json
   - recommendationDefinitionModifyResquest: !include schemas/recommendationDefinitionModifyResquest-schema.json
-  - recommendationDefinitionPhotoRequest: !include schemas/recommendationDefinitionPhotoRequest-schema.json
   - createTopicsRecordsResourceRequest: !include schemas/createTopicsRecordsResourceRequest-schema.json
   - topicsRecordsResourceRequest: !include schemas/topicsRecordsResourceRequest-schema.json
   - createScheduledRecommendationsRequest: !include schemas/createScheduledRecommendationsRequest-schema.json
-  - scheduledRecommendationRequest: !include schemas/scheduledRecommendationRequest-schema.json
   - actionLinkDefinitionInputRequest: !include schemas/actionLinkDefinitionInputRequest-schema.json
   - actionLinkGroupDefinitionInputRequest: !include schemas/actionLinkGroupDefinitionInputRequest-schema.json
   - actionLinkInputRequest: !include schemas/actionLinkInputRequest-schema.json
@@ -340,6 +336,9 @@ resourceTypes:
   - batchGroupMemberships: !include resourceTypes/batchGroupMemberships.raml
   - announcementsResource: !include resourceTypes/announcementsResource.raml
   - filesFeedElements: !include resourceTypes/filesFeedElements.raml
+  - feedElements: !include resourceTypes/feedElements.raml
+  - feedElementsBatch: !include resourceTypes/feedElementsBatch.raml
+  - feedElementsBatchGet: !include resourceTypes/feedElementsBatchGet.raml
   - feedElementsCapabilityLink: !include resourceTypes/feedElementsCapabilityLink.raml
   - feedElementsCapabilityRecommendations: !include resourceTypes/feedElementsCapabilityRecommendations.raml
   - topic: !include resourceTypes/topic.raml
@@ -460,525 +459,525 @@ traits:
   - filteredPage: !include traits/filteredPage.raml
   - isListOfCommunities: !include traits/isListOfCommunities.raml
   - pagination: !include traits/pagination.raml
-/chatter: 
+/chatter:
   type: chatterResource
-  /announcements/{announcementId}: 
+  /announcements/{announcementId}:
     type: announcementsResource
-  /comments/{commentId}: 
+  /comments/{commentId}:
     type: comment
-    patch: 
+    patch:
       description: Edit a Comment
-      body: 
-        application/json: 
+      body:
+        application/json:
           schema: commentInputRequest
           example: !include examples/commentInputRequest-example.json
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: commentResponse
-    /capabilities/edit/is-editable-by-me: 
+    /capabilities/edit/is-editable-by-me:
       type: commentCapabilityEditability
-    /likes: 
+    /likes:
       type: commentLikes
-  /feed-elements: 
+  /feed-elements:
     type: feedElements
-    /batch: 
+    /batch:
       type: feedElementsBatch
-      /{feedElementIds}: 
+      /{feedElementIds}:
         type: feedElementsBatchGet
-    /{feedElementId}: 
+    /{feedElementId}:
       type: feedSingleElement
-      /capabilities: 
+      /capabilities:
         type: feedElementsCapabilities
-        /approval: 
+        /approval:
           type: feedElementsApproval
-        /associated-actions: 
+        /associated-actions:
           type: feedElementsAssociatedActions
-        /banner: 
+        /banner:
           type: feedElementsCapabilitiesBanner
-        /bookmarks: 
+        /bookmarks:
           type: feedElementsBookmarks
-        /bundle: 
+        /bundle:
           type: feedElementsCapabilityBundle
-          /feed-elements: 
+          /feed-elements:
             type: feedElementsCapabilityBundleElements
-        /canvas: 
+        /canvas:
           type: feedElementsCapabilityCanvas
-        /case-comment: 
+        /case-comment:
           type: feedElementsCapabilityCaseComment
-        /chatter-likes: 
+        /chatter-likes:
           type: feedElementsCapabilityChatterLikes
-          /items: 
+          /items:
             type: feedElementsCapabilityChatterLikesItems
-        /comments: 
+        /comments:
           type: feedElementsCapabilityComments
-          /items: 
+          /items:
             type: feedElementsCapabilityCommentsItems
-        /content: 
+        /content:
           type: feedElementsCapabilityContent
-        /dashboard-component-snapshot: 
+        /dashboard-component-snapshot:
           type: feedElementsCapabilityDashboardComponentSnapshot
-        /edit/is-editable-by-me: 
+        /edit/is-editable-by-me:
           type: feedElementsCapabilityEditability
-        /email-message: 
+        /email-message:
           type: feedElementsCapabilityEmailMessage
-        /enhanced-link: 
+        /enhanced-link:
           type: feedElementsCapabilityEnhancedLink
-        /origin: 
+        /origin:
           type: feedElementsCapabilityOrigin
-        /poll: 
+        /poll:
           type: feedElementsCapabilityPoll
-        /question-and-answers: 
+        /question-and-answers:
           type: feedElementsCapabilityQuestionAnswers
-        /recommendations: 
+        /recommendations:
           type: feedElementsCapabilityRecommendations
-        /record-snapshot: 
+        /record-snapshot:
           type: feedElementsCapabilityRecordSnapshot
-        /topics: 
+        /topics:
           type: feedElementsCapabilityTopics
-        /tracked-changes: 
+        /tracked-changes:
           type: feedElementsCapabilityTrackedChanges
-        /link: 
+        /link:
           type: feedElementsCapabilityLink
-  /feeds: 
+  /feeds:
     type: feedsResource
-    /bookmarks/{userId}: 
+    /bookmarks/{userId}:
       type: bookmarksFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: bookmarksFeedElements
-    /company: 
+    /company:
       type: companyFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: companyFeedElements
-    /favorites/{userId}: 
+    /favorites/{userId}:
       type: feedsListofFavorites
-      /{favoriteId}: 
+      /{favoriteId}:
         type: userFeedsFavorites
-        /feed-elements: 
+        /feed-elements:
           type: userFavoritesFeedElements
-    /files/{userId}: 
+    /files/{userId}:
       type: filesFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: filesFeedElements
-      /feed-items/flat: 
-        get: 
+      /feed-items/flat:
+        get:
           description: "Returns a flat feed, that is, a feed where there is no hierarchy between feed items and comments: Feed items and comments are at the same level. All items are returned in chronological order."
-          responses: 
-            200: 
-              body: 
-                application/json: 
+          responses:
+            200:
+              body:
+                application/json:
                   schema: flatFeedResponse
-        head: 
+        head:
           description: "Returns a flat feed, that is, a feed where there is no hierarchy between feed items and comments: Feed items and comments are at the same level. All items are returned in chronological order."
-          responses: 
-            200: 
-    /filter/{userId}: 
+          responses:
+            200:
+    /filter/{userId}:
       type: listFilterFeedURLs
-      /{keyPrefix}: 
+      /{keyPrefix}:
         type: specificFilterFeedURL
-        /feed-elements: 
+        /feed-elements:
           type: filterFeedElements
-    /groups/{userId}: 
+    /groups/{userId}:
       type: groupsFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: groupsFeedElements
-    /news/{userId}: 
+    /news/{userId}:
       type: newsFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: newsFeedElements
-    /people/{userId}: 
+    /people/{userId}:
       type: peopleFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: peopleFeedElements
-    /record/{recordId}: 
+    /record/{recordId}:
       type: recordFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: recordFeedElements
-    /to/{userId}: 
+    /to/{userId}:
       type: toFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: toFeedElements
-    /topics/{topicId}: 
+    /topics/{topicId}:
       type: topicsFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: topicsFeedElements
-    /user-profile/{userId}: 
+    /user-profile/{userId}:
       type: userProfileFeedURL
-      /feed-elements: 
+      /feed-elements:
         type: userProfileFeedElements
-  /files: 
-    /{fileId}: 
+  /files:
+    /{fileId}:
       type: fileInformation
-      /content: 
+      /content:
         type: fileContent
-      /file-shares: 
+      /file-shares:
         type: fileShares
-        /link: 
+        /link:
           type: filesSharesLink
-      /rendition: 
+      /rendition:
         type: fileRendition
-    /batch/fileIds: 
+    /batch/fileIds:
       type: fileInformationBatch
-  /folders/{folderId}: 
-    get: 
+  /folders/{folderId}:
+    get:
       description: Get information about the specified folder.
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: folderResponse
-    delete: 
+    delete:
       description: Deleting a folder deletes all the folders within that folder and removes all files from the deleted folders so they are no longer synced.
-      responses: 
-        204: 
-    patch: 
+      responses:
+        204:
+    patch:
       description: Move, rename a folder.
-      queryParameters: 
-        isInMy​FileSync: 
+      queryParameters:
+        isInMy​FileSync:
           description: |
             true if the folder and all folders in this folder are synced with Salesforce Files Sync; false otherwise.
             Setting isInMyFileSync is valid only for the root folder. Once set to true, isInMyFileSync can’t be set to false.
           type: boolean
-        parent​FolderId: 
+        parent​FolderId:
           description: The ID of the new parent folder. If null, the folder is removed from its current folder. If the specified ID is root, the folder is moved to the root of the user’s folder hierarchy.
           required: true
-        name: 
+        name:
           description: The new name for the folder
           required: true
-      body: 
-        application/json: 
+      body:
+        application/json:
           schema: folderInputRequest
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: folderResponse
-    head: 
+    head:
       description: Get information about the specified folder.
-      responses: 
-        200: 
-    /items: 
-      post: 
+      responses:
+        200:
+    /items:
+      post:
         description: |
           Add a file to a folder and create a folder. Sync the root folder.
-          
+
           To create a folder, you can use a request body or request parameters in a POST request.
-        queryParameters: 
-          desc: 
+        queryParameters:
+          desc:
             description: The description of the file
-          isInMy​FileSync: 
+          isInMy​FileSync:
             description: true if the folder and all folders in this folder are synced with Salesforce Files Sync; false otherwise.
             type: boolean
-          title: 
+          title:
             description: The title of the file
-          type: 
+          type:
             description: The item type. To create a folder, the value must be Folder.
             required: true
-          folderPath: 
+          folderPath:
             description: The path to the folder
             required: true
-        body: 
-          application/json: 
+        body:
+          application/json:
             schema: folderItemInputRequest
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: folderItemResponse
                 example: !include examples/addingFileInFolderResponse-example.json
-      head: 
+      head:
         description: Get information about the contents of a folder.
-        responses: 
-          200: 
-      get: 
+        responses:
+          200:
+      get:
         is: [ filteredPage ]
         description: Get information about the contents of a folder.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: folderItemPageResponse
-  /group-membership-requests/{requestId}: 
+  /group-membership-requests/{requestId}:
     type: groupMembershipRequestsPrivate
-  /group-memberships: 
-    /batch/{membershipIds}: 
+  /group-memberships:
+    /batch/{membershipIds}:
       type: batchGroupMemberships
-    /{membershipId}: 
+    /{membershipId}:
       type: groupMembershipsInformation
-  /group-records/{groupRecordId}: 
+  /group-records/{groupRecordId}:
     type: groupRecord
-  /groups: 
+  /groups:
     type: listOfGroups
-    /batch/{group_list}: 
+    /batch/{group_list}:
       type: batchGroupInformation
-    /{groupId}: 
+    /{groupId}:
       type: groupInformation
-      /announcements: 
+      /announcements:
         type: groupAnnouncements
-      /files: 
+      /files:
         type: groupFiles
-      /members: 
+      /members:
         type: groupMembers
-        /requests: 
+        /requests:
           type: groupMembersPrivate
-      /my-settings: 
+      /my-settings:
         type: groupSettings
-      /photo: 
+      /photo:
         type: groupPhoto
-      /records: 
+      /records:
         type: groupRecords
-      /topics: 
+      /topics:
         type: groupTopics
-  /influence/thresholds: 
+  /influence/thresholds:
     type: influenceResource
-  /likes/{likeId}: 
+  /likes/{likeId}:
     type: likesResource
-  /mentions/completions: 
+  /mentions/completions:
     type: mentionsCompletions
-  /mentions/validations: 
+  /mentions/validations:
     type: mentionsValidations
-  /records/{recordId}/followers: 
+  /records/{recordId}/followers:
     type: followersRecordsResource
-  /subscriptions/{subscriptionId}: 
+  /subscriptions/{subscriptionId}:
     type: subscriptionsResource
-  /users: 
+  /users:
     type: userInformation
-    /{userId}: 
+    /{userId}:
       type: userProfileInformation
-      /files: 
+      /files:
         type: usersFilesGeneral
-        /filter: 
-          /groups: 
+        /filter:
+          /groups:
             type: userFilesFilteredByGroup
-          /shared-with-me: 
+          /shared-with-me:
             type: userFilesFilteredBySharing
-      /conversations: 
+      /conversations:
         type: userConversationsGeneral
-        /{conversationId}: 
+        /{conversationId}:
           type: userConversationsSpecific
-          /mark-read: 
-            put: 
+          /mark-read:
+            put:
               description: Changes the status of the specified conversation. Also see Using POST, PATCH, or PUT for Input. You can also use PATCH on the conversations resource to change the status of a specified conversation.
-              queryParameters: 
-                read: 
+              queryParameters:
+                read:
                   description: Changes the conversation status to unread (false) or read (true).
                   type: boolean
-              responses: 
-                200: 
-            post: 
+              responses:
+                200:
+            post:
               description: Changes the status of the specified conversation. Also see Using POST, PATCH, or PUT for Input. You can also use PATCH on the conversations resource to change the status of a specified conversation.
-              queryParameters: 
-                read: 
+              queryParameters:
+                read:
                   description: Changes the conversation status to unread (false) or read (true).
                   type: boolean
-              responses: 
-                201: 
-            patch: 
+              responses:
+                201:
+            patch:
               description: Changes the status of the specified conversation. Also see Using POST, PATCH, or PUT for Input. You can also use PATCH on the conversations resource to change the status of a specified conversation.
-              queryParameters: 
-                read: 
+              queryParameters:
+                read:
                   description: Changes the conversation status to unread (false) or read (true).
                   type: boolean
-              responses: 
-                200: 
-        /unread-count: 
+              responses:
+                200:
+        /unread-count:
           type: getUnreadCountConversations
-    /batch/{user_list}: 
+    /batch/{user_list}:
       type: batchUserInformation
-/connect: 
-  get: 
+/connect:
+  get:
     description: A directory of the organization and community resources available to the context user.
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: connectDirectoryResponse
-  head: 
+  head:
     description: A directory of the organization and community resources available to the context user.
-    responses: 
-      200: 
-  /action-link-group-definitions: 
+    responses:
+      200:
+  /action-link-group-definitions:
     type: actionLinkGroupDefinition
-    /{actionLinkGroupId}: 
+    /{actionLinkGroupId}:
       type: actionLinkGroupIDDefinition
-  /action-link-groups/{actionLinkGroupId}: 
+  /action-link-groups/{actionLinkGroupId}:
     type: actionLinkGroup
-  /action-links/{actionLinkId}: 
+  /action-links/{actionLinkId}:
     type: actionLink
-    /diagnostic-info: 
+    /diagnostic-info:
       type: actionLinkDiagnosticInformation
-  /batch: 
-    post: 
+  /batch:
+    post:
       description: Create a request body with a batch of up to 25 subrequests and send them to the server in a single request to improve your application’s performance. The response bodies and HTTP statuses for each subrequest in the batch are returned within a single response body. Each subrequest counts against rate limits.
-      body: 
-        application/json: 
+      body:
+        application/json:
           schema: genericBatchCollectionInputRequest
           example: !include examples/genericBatchCollectionInputRequest-example.json
-      responses: 
-        201: 
-          body: 
-            application/json: 
+      responses:
+        201:
+          body:
+            application/json:
               schema: batchResultsResponse
               example: !include examples/genericBatchCollectionInputResponse-example.json
-  /communities: 
-    get: 
+  /communities:
+    get:
       description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: communityPageResponse
-    head: 
+    head:
       description: Returns a list of all communities available to the context user. If the user is an administrator, returns a list of all communities that meet the filter criteria. If the user is not an administrator, returns a list of all active communities that meet the filter criteria.
-      responses: 
-        200: 
-    /{communityId}: 
-      get: 
+      responses:
+        200:
+    /{communityId}:
+      get:
         description: Returns information about the specified community.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: communityResponse
-      head: 
+      head:
         description: Returns information about the specified community.
-        responses: 
-          200: 
-      /action-link-group-definitions: 
+        responses:
+          200:
+      /action-link-group-definitions:
         type: actionLinkGroupDefinition
-        /{actionLinkGroupId}: 
+        /{actionLinkGroupId}:
           type: actionLinkGroupIDDefinition
-      /action-link-groups/{actionLinkGroupId}: 
+      /action-link-groups/{actionLinkGroupId}:
         type: actionLinkGroup
-      /action-links/{actionLinkId}: 
+      /action-links/{actionLinkId}:
         type: actionLink
-        /diagnostic-info: 
+        /diagnostic-info:
           type: actionLinkDiagnosticInformation
-      /chatter: 
+      /chatter:
         type: chatterResource
-        /announcements/{announcementId}: 
+        /announcements/{announcementId}:
           type: announcementsResource
-        /comments/{commentId}: 
+        /comments/{commentId}:
           type: comment
-          /capabilities/edit/is-editable-by-me: 
+          /capabilities/edit/is-editable-by-me:
             type: commentCapabilityEditability
-          /likes: 
+          /likes:
             type: commentLikes
-          /moderation-flags: 
-            get: 
+          /moderation-flags:
+            get:
               is: [ isFeedElementsCapability ]
               description: |
                 If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
                 If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
-              responses: 
-                200: 
-                  body: 
-                    application/json: 
+              responses:
+                200:
+                  body:
+                    application/json:
                       schema: moderationFlagsResponse
-            post: 
+            post:
               is: [ isFeedElementsCapability ]
               description: Create Moderation Flags​ on Comments.
-              body: 
-                application/json: 
+              body:
+                application/json:
                   schema: moderationFlags​CommentsRequest
                   example: !include examples/moderationFlags​CommentsRequest-example.json
-              responses: 
-                201: 
-                  body: 
-                    application/json: 
+              responses:
+                201:
+                  body:
+                    application/json:
                       schema: moderationFlagsResponse
-            delete: 
+            delete:
               description: Delete Moderation Flags​ on Comments.
-              queryParameters: 
-                userId: 
+              queryParameters:
+                userId:
                   description: The ID of the context user. If specified, removes the flag the user previously added to the comment. If not specified and the context user is a moderator for the community, all flags on the comment are removed.
-              responses: 
-                204: 
-            head: 
+              responses:
+                204:
+            head:
               description: |
                 If the context user is a community moderator, returns the number of times a comment has been flagged by community members. Also flags a comment for moderation and deletes all flags on a comment.
                 If the context user isn’t a community moderator, returns whether or not the user has flagged a comment. Also flags a comment for moderation and removes a flag the user previously added.
-              responses: 
-                200: 
-        /feed-elements: 
+              responses:
+                200:
+        /feed-elements:
           type: feedElementsCapabilityModeration
-          /batch: 
+          /batch:
             type: feedElementsBatch
-            /{feedElementIds}: 
+            /{feedElementIds}:
               type: feedElementsBatchGet
-          /{feedElementId}: 
+          /{feedElementId}:
             type: feedSingleElement
-            /capabilities: 
+            /capabilities:
               type: feedElementsCapabilities
-              /approval: 
+              /approval:
                 type: feedElementsApproval
-              /associated-actions: 
+              /associated-actions:
                 type: feedElementsAssociatedActions
-              /banner: 
+              /banner:
                 type: feedElementsCapabilitiesBanner
-              /bookmarks: 
+              /bookmarks:
                 type: feedElementsBookmarks
-              /bundle: 
+              /bundle:
                 type: feedElementsCapabilityBundle
-                /feed-elements: 
+                /feed-elements:
                   type: feedElementsCapabilityBundleElements
-              /canvas: 
+              /canvas:
                 type: feedElementsCapabilityCanvas
-              /case-comment: 
+              /case-comment:
                 type: feedElementsCapabilityCaseComment
-              /chatter-likes: 
+              /chatter-likes:
                 type: feedElementsCapabilityChatterLikes
-                /items: 
+                /items:
                   type: feedElementsCapabilityChatterLikesItems
-              /comments: 
+              /comments:
                 type: feedElementsCapabilityComments
-                /items: 
+                /items:
                   type: feedElementsCapabilityCommentsItems
-              /content: 
+              /content:
                 type: feedElementsCapabilityContent
-              /dashboard-component-snapshot: 
+              /dashboard-component-snapshot:
                 type: feedElementsCapabilityDashboardComponentSnapshot
-              /edit/is-editable-by-me: 
+              /edit/is-editable-by-me:
                 type: feedElementsCapabilityEditability
-              /email-message: 
+              /email-message:
                 type: feedElementsCapabilityEmailMessage
-              /enhanced-link: 
+              /enhanced-link:
                 type: feedElementsCapabilityEnhancedLink
-              /moderation: 
+              /moderation:
                 type: feedElementsCapabilityModeration
-              /origin: 
+              /origin:
                 type: feedElementsCapabilityOrigin
-              /poll: 
+              /poll:
                 type: feedElementsCapabilityPoll
-              /question-and-answers: 
+              /question-and-answers:
                 type: feedElementsCapabilityQuestionAnswers
-              /recommendations: 
+              /recommendations:
                 type: feedElementsCapabilityRecommendations
-              /record-snapshot: 
+              /record-snapshot:
                 type: feedElementsCapabilityRecordSnapshot
-              /topics: 
+              /topics:
                 type: feedElementsCapabilityTopics
-              /tracked-changes: 
+              /tracked-changes:
                 type: feedElementsCapabilityTrackedChanges
-              /link: 
+              /link:
                 type: feedElementsCapabilityLink
-        /feeds: 
+        /feeds:
           type: feedsResource
-          /bookmarks/{userId}: 
+          /bookmarks/{userId}:
             type: bookmarksFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: bookmarksFeedElements
-          /home/feed-elements: 
-            head: 
+          /home/feed-elements:
+            head:
               description: Returns a list of all feed elements associated with any managed topic in the community.
-              responses: 
-                200: 
-            get: 
+              responses:
+                200:
+            get:
               is: [ sortedPage ]
               description: Returns a list of all feed elements associated with any managed topic in the community.
-              queryParameters: 
-                filter: 
+              queryParameters:
+                filter:
                   description: |
                     Specifies the filter values that can be applied to a feed.
                     AllQuestions—Only feed elements that are questions.
@@ -986,583 +985,583 @@ traits:
                     SolvedQuestions—Only feed elements that are questions and that have a best answer.
                     UnansweredQuestions—Only feed elements that are questions and that don’t have any answers.
                     UnsolvedQuestions—Only feed elements that are questions and that don’t have a best answer.
-                  enum: 
+                  enum:
                     - CommunityScoped
                     - UnsolvedQuestions
                     - UnansweredQuestions
                     - SolvedQuestions
                     - AllQuestions
                   example: AllQuestions
-              responses: 
-                200: 
-                  body: 
-                    application/json: 
+              responses:
+                200:
+                  body:
+                    application/json:
                       schema: feedElementPageResponse
-          /moderation/feed-elements: 
-            head: 
+          /moderation/feed-elements:
+            head:
               description: If the context user is a community moderator with the “Moderate Communities Feeds” permission, returns a list of all feed elements and comments in the community that have been flagged by community members.
-              responses: 
-                200: 
-            get: 
+              responses:
+                200:
+            get:
               is: [ sortedPage ]
               description: If the context user is a community moderator with the “Moderate Communities Feeds” permission, returns a list of all feed elements and comments in the community that have been flagged by community members. By default, returns 25 feed elements per page of results.
-              responses: 
-                200: 
-                  body: 
-                    application/json: 
+              responses:
+                200:
+                  body:
+                    application/json:
                       schema: feedElementPageResponse
-          /company: 
+          /company:
             type: companyFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: companyFeedElements
-          /favorites/{userId}: 
+          /favorites/{userId}:
             type: feedsListofFavorites
-            /{favoriteId}: 
+            /{favoriteId}:
               type: userFeedsFavorites
-              /feed-elements: 
+              /feed-elements:
                 type: userFavoritesFeedElements
-          /files/{userId}: 
+          /files/{userId}:
             type: filesFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: filesFeedElements
-          /filter/{userId}: 
+          /filter/{userId}:
             type: listFilterFeedURLs
-            /{keyPrefix}: 
+            /{keyPrefix}:
               type: specificFilterFeedURL
-              /feed-elements: 
+              /feed-elements:
                 type: filterFeedElements
-          /groups/{userId}: 
+          /groups/{userId}:
             type: groupsFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: groupsFeedElements
-          /news/{userId}: 
+          /news/{userId}:
             type: newsFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: newsFeedElements
-          /people/{userId}: 
+          /people/{userId}:
             type: peopleFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: peopleFeedElements
-          /record/{recordId}: 
+          /record/{recordId}:
             type: recordFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: recordFeedElements
-          /to/{userId}: 
+          /to/{userId}:
             type: toFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: toFeedElements
-          /topics/{topicId}: 
+          /topics/{topicId}:
             type: topicsFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: topicsFeedElements
-          /user-profile/{userId}: 
+          /user-profile/{userId}:
             type: userProfileFeedURL
-            /feed-elements: 
+            /feed-elements:
               type: userProfileFeedElements
-        /files: 
-          /moderation: 
-            get: 
+        /files:
+          /moderation:
+            get:
               is: [ pagination ]
               description: |
                 Files that are flagged in a community.
-                
+
                 If the context user is a community moderator, returns the files that have been flagged by community members.
-              queryParameters: 
-                q: 
+              queryParameters:
+                q:
                   description: A query string to filter the results. The string must contain at least two characters, not including wildcards. For information about wildcards, see Wildcards.
-              responses: 
-                200: 
-                  body: 
-                    application/json: 
+              responses:
+                200:
+                  body:
+                    application/json:
                       schema: fileSummaryResponse
-            head: 
+            head:
               description: |
                 Files that are flagged in a community.
-                
+
                 If the context user is a community moderator, returns the files that have been flagged by community members.
-              responses: 
-                200: 
-          /{fileId}: 
+              responses:
+                200:
+          /{fileId}:
             type: fileInformation
-            /moderation-flags: 
-              get: 
+            /moderation-flags:
+              get:
                 is: [ isFeedElementsCapability ]
                 description: |
                   If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
-                  
+
                   If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
-                responses: 
-                  200: 
-                    body: 
-                      application/json: 
+                responses:
+                  200:
+                    body:
+                      application/json:
                         schema: moderationFlagsResponse
-              post: 
+              post:
                 is: [ isFeedElementsCapability ]
                 description: Create Moderation Flags​ on Files
-                body: 
-                  application/json: 
+                body:
+                  application/json:
                     schema: addModerationFlagRequest
                     example: !include examples/moderationFlags​FilesRequest-example.json
-                responses: 
-                  201: 
-                    body: 
-                      application/json: 
+                responses:
+                  201:
+                    body:
+                      application/json:
                         schema: moderationFlagsResponse
-              delete: 
+              delete:
                 description: Delete Moderation Flags​ on Files
-                queryParameters: 
-                  userId: 
+                queryParameters:
+                  userId:
                     description: The ID of the context user. If specified, removes the flag the user previously added to the file. If not specified and the context user is a moderator for the community, all flags on the file are removed.
-                responses: 
-                  204: 
-              head: 
+                responses:
+                  204:
+              head:
                 description: |
                   If the context user is a community moderator, returns the number of times a file has been flagged by community members. Also flags a file for moderation and deletes all flags on a file.
-                  
+
                   If the context user isn’t a community moderator, returns whether or not the user has flagged a file. Also flags a file for moderation and removes a flag the user previously added.
-                responses: 
-                  200: 
-            /content: 
+                responses:
+                  200:
+            /content:
               type: fileContent
-            /file-shares: 
+            /file-shares:
               type: fileShares
-              /link: 
+              /link:
                 type: filesSharesLink
-            /rendition: 
+            /rendition:
               type: fileRendition
-          /batch/fileIds: 
+          /batch/fileIds:
             type: fileInformationBatch
-        /group-membership-requests/{requestId}: 
+        /group-membership-requests/{requestId}:
           type: groupMembershipRequestsPrivate
-        /group-memberships: 
-          /batch/{membershipIds}: 
+        /group-memberships:
+          /batch/{membershipIds}:
             type: batchGroupMemberships
-          /{membershipId}: 
+          /{membershipId}:
             type: groupMembershipsInformation
-        /group-records/{groupRecordId}: 
+        /group-records/{groupRecordId}:
           type: groupRecord
-        /groups: 
+        /groups:
           type: listOfGroups
-          /batch/{group_list}: 
+          /batch/{group_list}:
             type: batchGroupInformation
-          /{groupId}: 
+          /{groupId}:
             type: groupInformation
-            /announcements: 
+            /announcements:
               type: groupAnnouncements
-            /files: 
+            /files:
               type: groupFiles
-            /members: 
+            /members:
               type: groupMembers
-              /requests: 
+              /requests:
                 type: groupMembersPrivate
-            /my-settings: 
+            /my-settings:
               type: groupSettings
-            /photo: 
+            /photo:
               type: groupPhoto
-            /records: 
+            /records:
               type: groupRecords
-            /topics: 
+            /topics:
               type: groupTopics
-        /influence/thresholds: 
+        /influence/thresholds:
           type: influenceResource
-        /likes/{likeId}: 
+        /likes/{likeId}:
           type: likesResource
-        /mentions/completions: 
+        /mentions/completions:
           type: mentionsCompletions
-        /mentions/validations: 
+        /mentions/validations:
           type: mentionsValidations
-        /records/{recordId}/followers: 
+        /records/{recordId}/followers:
           type: followersRecordsResource
-        /subscriptions/{subscriptionId}: 
+        /subscriptions/{subscriptionId}:
           type: subscriptionsResource
-        /users: 
+        /users:
           type: userInformation
-          /{userId}: 
+          /{userId}:
             type: userProfileInformation
-            /files: 
+            /files:
               type: usersFilesGeneral
-              /filter: 
-                /groups: 
+              /filter:
+                /groups:
                   type: userFilesFilteredByGroup
-                /shared-with-me: 
+                /shared-with-me:
                   type: userFilesFilteredBySharing
-            /conversations: 
+            /conversations:
               type: userConversationsGeneral
-              /{conversationId}: 
+              /{conversationId}:
                 type: userConversationsSpecific
-              /unread-count: 
+              /unread-count:
                 type: getUnreadCountConversations
-          /batch/{user_list}: 
+          /batch/{user_list}:
             type: batchUserInformation
-      /managed-topics: 
-        get: 
+      /managed-topics:
+        get:
           description: Get all the managed topics for a community.
-          queryParameters: 
-            managedTopic​Type: 
+          queryParameters:
+            managedTopic​Type:
               description: |
                 Type of managed topic.
                 Featured—Topics that are featured, for example, on the community home page, but don’t provide overall navigation.
                 Navigational—Topics that display in a navigational menu in the community.
                 A topic can be associated with up to two managed topic types, so a topic can be both a Featured topic and a Navigational topic.
               enum: [ Navigational , Featured ]
-          responses: 
-            200: 
-              body: 
-                application/json: 
+          responses:
+            200:
+              body:
+                application/json:
                   schema: managedTopicCollectionResponse
-        post: 
+        post:
           description: |
             Create a managed topic.
             Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can create or reorder managed topics.
-          queryParameters: 
-            managedTopic​Type: 
+          queryParameters:
+            managedTopic​Type:
               description: |
                 Type of managed topic.
                 Featured—Topics that are featured, for example, on the community home page, but don’t provide overall navigation.
                 Navigational—Topics that display in a navigational menu in the community.
                 A topic can be associated with up to two managed topic types, so a topic can be both a Featured topic and a Navigational topic.
-                
+
                 You can create up to 25 managed topics per managedTopicType.
               required: true
               enum: [ Navigational , Featured ]
-            name: 
+            name:
               description: |
                 Name of the managed topic.
                 Required for new topics
                 You must specify either name or recordId. You can’t specify both.
               required: true
-            recordId: 
+            recordId:
               description: |
                 ID of the record to become a managed topic.
                 In version 32.0, recordId must be a topic ID.
                 Required if the Name property isn’t used
                 You must specify either name or recordId. You can’t specify both.
               required: true
-          body: 
-            application/json: 
+          body:
+            application/json:
               schema: createManagedTopicsRequest
               example: !include examples/createManagedTopicsRequest-example.json
-          responses: 
-            201: 
-              body: 
-                application/json: 
+          responses:
+            201:
+              body:
+                application/json:
                   schema: managedTopicResponse
-        patch: 
+        patch:
           description: |
             Reorder managed topics.
             Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can create or reorder managed topics.
-          body: 
-            application/json: 
+          body:
+            application/json:
               schema: reoderManagedTopicsRequest
               example: !include examples/reoderManagedTopicsRequest-example.json
-          responses: 
-            200: 
-              body: 
-                application/json: 
+          responses:
+            200:
+              body:
+                application/json:
                   schema: managedTopicCollectionResponse
-        head: 
+        head:
           description: Get all the managed topics for a community.
-          responses: 
-            200: 
-        /{managedTopicId}: 
-          head: 
+          responses:
+            200:
+        /{managedTopicId}:
+          head:
             description: |
               Get information about topic in a community.
-            responses: 
-              200: 
-          get: 
+            responses:
+              200:
+          get:
             description: Get information about topic in a community.
-            responses: 
-              200: 
-                body: 
-                  application/json: 
+            responses:
+              200:
+                body:
+                  application/json:
                     schema: managedTopicResponse
-          delete: 
+          delete:
             description: |
               Delete a managed topic in a community.
               Only community managers (users with the “Create and Set Up Communities” or “Manage Communities” permission) can delete managed topics.
-            responses: 
-              204: 
-      /motifs: 
-        /{idOrPrefix}: 
+            responses:
+              204:
+      /motifs:
+        /{idOrPrefix}:
           type: motifsResource
-        /batch/{idOrPrefixList}: 
+        /batch/{idOrPrefixList}:
           type: batchMotifsResource
-      /question-and-answers/suggestions: 
+      /question-and-answers/suggestions:
         type: questionAnswersSuggestionsResource
-      /recommendation-definitions: 
+      /recommendation-definitions:
         type: recommendationDefinitions
-        /{recommendationDefinitionId}: 
+        /{recommendationDefinitionId}:
           type: recommendationDefinition
-      /records/{recordId}/topics: 
+      /records/{recordId}/topics:
         type: topicsRecordsResource
-      /scheduled-recommendations: 
+      /scheduled-recommendations:
         type: sheduledRecommendations
-        /{scheduledRecommendationId}: 
+        /{scheduledRecommendationId}:
           type: scheduledRecommendation
-      /user-profiles/{userID}: 
+      /user-profiles/{userID}:
         type: userProfilesResource
-      /zones: 
+      /zones:
         type: listofZones
-        /{zoneId}: 
+        /{zoneId}:
           type: zoneInformation
-          /search-results: 
+          /search-results:
             type: zoneSearchResults
-      /topics: 
+      /topics:
         type: listofTopics
-        /{topicId}: 
+        /{topicId}:
           type: topic
-          /endorsements: 
+          /endorsements:
             type: topicsEndorsePeople
-          /files: 
+          /files:
             type: topicFiles
-          /groups: 
+          /groups:
             type: topicGroups
-          /knowledgeable-users: 
+          /knowledgeable-users:
             type: topicsKnowledgeablePeopleList
-          /related-topics: 
+          /related-topics:
             type: relatedTopics
-          /topic-opt-outs: 
+          /topic-opt-outs:
             type: topicsOptOutsKnowledgeablePeopleList
-        /suggestions: 
+        /suggestions:
           type: topicsSuggestions
-        /trending: 
+        /trending:
           type: trendingTopics
-      /topic-endorsements/{endorsementId}: 
+      /topic-endorsements/{endorsementId}:
         type: topicEndorsements
-      /topic-opt-outs/{topicOptOutId}: 
+      /topic-opt-outs/{topicOptOutId}:
         type: topicsOptOutfromKnowledgeablePeopleList
-  /organization: 
-    get: 
+  /organization:
+    get:
       description: Information about the context user’s organization and settings.
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: organizationResponse
-    head: 
+    head:
       description: Information about the context user’s organization and settings.
-      responses: 
-        200: 
-  /dashboards/components/{componentId}/snapshots: 
-    post: 
+      responses:
+        200:
+  /dashboards/components/{componentId}/snapshots:
+    post:
       description: Post a snapshot of a dashboard component to a user, group, or dashboard feed to help other users follow changes in the data.
-      body: 
-        application/json: 
+      body:
+        application/json:
           schema: dashboardComponentSnapshotResourceRequest
           example: !include examples/dashboardComponentSnapshotResourceRequest-example.json
-      responses: 
-        201: 
-          body: 
-            application/json: 
+      responses:
+        201:
+          body:
+            application/json:
               schema: dashboardComponentSnapshotResponse
-  /datacloud: 
-    /companies/{companyId}: 
-      get: 
+  /datacloud:
+    /companies/{companyId}:
+      get:
         description: Returns the company fields for the specified companyId.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: datacloudCompanyCollectionResponse
-    /contacts/{contactId}: 
-      get: 
+    /contacts/{contactId}:
+      get:
         description: Returns the contact information for the specified contact.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: datacloudContactResponse
-    /orders: 
-      post: 
+    /orders:
+      post:
         description: |
           Purchases the contacts or companies for the listed IDs. The POST request can have either contact IDs or Company IDs not both. orderInput.
           Purchase contacts or companies in a single POST request, and specify .
-        body: 
-          application/json: 
+        body:
+          application/json:
             schema: datacloudOrdersRequest
             example: !include examples/datacloudOrdersRequest-example.json
-        responses: 
-          201: 
-            body: 
-              application/json: 
+        responses:
+          201:
+            body:
+              application/json:
                 schema: datacloudOrderResponse
-      /{orderId}: 
-        /contacts: 
-          get: 
+      /{orderId}:
+        /contacts:
+          get:
             is: [ pagination ]
             description: |
               Returns all the order information for a specific orderId for contacts.
               Order information includes the orderId, the number of purchased records for the orderId, the URL for the order information, and details for the purchased contacts. The orderId must be for purchased contacts. A request with an orderId for purchased companies fails.
-            responses: 
-              200: 
-                body: 
-                  application/json: 
+            responses:
+              200:
+                body:
+                  application/json:
                     schema: datacloudContactCollectionResponse
-        /companies: 
-          get: 
+        /companies:
+          get:
             description: The orderId must be for purchased companies. A request for a contact orderId fails. Order information includes the orderId, the number of purchased records for the order, information for the purchased companies, and the URLs for next and previous pages.
-            queryParameters: 
-              page: 
+            queryParameters:
+              page:
                 description: The page number to be set as the URL for the current page.
                 type: integer
                 required: true
-              pageSize: 
+              pageSize:
                 description: The number of the page that you want returned. The default page size is set to 25.
                 type: integer
                 default: 25
                 example: 5
-            responses: 
-              200: 
-                body: 
-                  application/json: 
+            responses:
+              200:
+                body:
+                  application/json:
                     schema: datacloudCompanyCollectionResponse
-    /usage/{userId}: 
-      get: 
+    /usage/{userId}:
+      get:
         description: Returns usage information for a Monthly user or a Listpool user.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: datacloudPurchaseUsageResponse
-  /content-hub/repositories: 
-    get: 
+  /content-hub/repositories:
+    get:
       is: [ pagination ]
       description: Get a list of files connect repositories.
-      queryParameters: 
-        canBrowseOnly: 
+      queryParameters:
+        canBrowseOnly:
           description: Retrieves only repositories that support browsing.
           type: boolean
           example: true
-        canSearchOnly: 
+        canSearchOnly:
           description: Retrieves only repositories that support searching.
           type: boolean
           example: true
-      responses: 
-        200: 
-          body: 
-            application/json: 
+      responses:
+        200:
+          body:
+            application/json:
               schema: filesConnectRepositoryCollectionResponse
-    /{repositoryId}: 
-      head: 
+    /{repositoryId}:
+      head:
         description: Get information about a files connect repository.
-        responses: 
-          200: 
-      get: 
+        responses:
+          200:
+      get:
         description: Get information about a files connect repository.
-        responses: 
-          200: 
-            body: 
-              application/json: 
+        responses:
+          200:
+            body:
+              application/json:
                 schema: filesConnectRepositoryResponse
-      /files/{repositoryFileId}: 
-        get: 
+      /files/{repositoryFileId}:
+        get:
           description: Get information about a files connect repository file.
-          responses: 
-            200: 
-              body: 
-                application/json: 
+          responses:
+            200:
+              body:
+                application/json:
                   schema: repositoryFileSummaryResponse
-        head: 
+        head:
           description: Get information about a files connect repository file.
-          responses: 
-            200: 
-        /content: 
-          head: 
+          responses:
+            200:
+        /content:
+          head:
             description: Get the content of the repository file from the external system. The content is streamed as the body of the response.
-            responses: 
-              200: 
-          get: 
+            responses:
+              200:
+          get:
             description: Get the content of the repository file from the external system. The content is streamed as the body of the response.
-            responses: 
-              200: 
-                body: 
-                  application/json: 
-      /folders/{repositoryFolderId}/items: 
-        get: 
+            responses:
+              200:
+                body:
+                  application/json:
+      /folders/{repositoryFolderId}/items:
+        get:
           is: [ pagination ]
           description: Get information about the files and folders in a repository folder.
-          responses: 
-            200: 
-              body: 
-                application/json: 
+          responses:
+            200:
+              body:
+                application/json:
                   schema: repositoryFolderItemsCollectionResponse
-        head: 
+        head:
           description: Get information about the files and folders in a repository folder.
-          responses: 
-            200: 
-  /motifs: 
-    /{idOrPrefix}: 
+          responses:
+            200:
+  /motifs:
+    /{idOrPrefix}:
       type: motifsResource
-    /batch/{idOrPrefixList}: 
+    /batch/{idOrPrefixList}:
       type: batchMotifsResource
-  /notifications/push: 
-    post: 
+  /notifications/push:
+    post:
       description: Send a mobile push notification to connected apps on users’ devices. This resource is only accessible when the session is established with a connected app that is developed in the same organization or installed in the same package as the recipient’s connected app.
-      queryParameters: 
-        appName: 
+      queryParameters:
+        appName:
           description: The API name of the connected app that the push notification is sent to.
           required: true
-        namespace: 
+        namespace:
           description: |
             The namespace of the connected app that the push notification is sent to.
             Required if the namespace is set
           required: true
-        payload: 
+        payload:
           description: The push notification payload in JSON format.
           required: true
-        userIds: 
+        userIds:
           description: The push notification recipient user ids.
           required: true
-      body: 
-        application/json: 
+      body:
+        application/json:
           schema: notificationsPushRequest
           example: !include examples/notificationsPushRequest-example.json
-      responses: 
-        200: 
-  /question-and-answers/suggestions: 
+      responses:
+        200:
+  /question-and-answers/suggestions:
     type: questionAnswersSuggestionsResource
-  /recommendation-definitions: 
+  /recommendation-definitions:
     type: recommendationDefinitions
-    /{recommendationDefinitionId}: 
+    /{recommendationDefinitionId}:
       type: recommendationDefinition
-      /photo: 
+      /photo:
         type: recommendationDefinitionPhoto
-  /records/{recordId}/topics: 
+  /records/{recordId}/topics:
     type: topicsRecordsResource
-  /scheduled-recommendations: 
+  /scheduled-recommendations:
     type: sheduledRecommendations
-    /{scheduledRecommendationId}: 
+    /{scheduledRecommendationId}:
       type: scheduledRecommendation
-  /user-profiles/{userID}: 
+  /user-profiles/{userID}:
     type: userProfilesResource
-  /zones: 
+  /zones:
     type: listofZones
-    /{zoneId}: 
+    /{zoneId}:
       type: zoneInformation
-      /search-results: 
+      /search-results:
         type: zoneSearchResults
-  /topics: 
+  /topics:
     type: listofTopics
-    /{topicId}: 
+    /{topicId}:
       type: topic
-      /endorsements: 
+      /endorsements:
         type: topicsEndorsePeople
-      /files: 
+      /files:
         type: topicFiles
-      /groups: 
+      /groups:
         type: topicGroups
-      /knowledgeable-users: 
+      /knowledgeable-users:
         type: topicsKnowledgeablePeopleList
-      /related-topics: 
+      /related-topics:
         type: relatedTopics
-      /topic-opt-outs: 
+      /topic-opt-outs:
         type: topicsOptOutsKnowledgeablePeopleList
-    /suggestions: 
+    /suggestions:
       type: topicsSuggestions
-    /trending: 
+    /trending:
       type: trendingTopics
-  /topic-endorsements/{endorsementId}: 
+  /topic-endorsements/{endorsementId}:
     type: topicEndorsements
-  /topic-opt-outs/{topicOptOutId}: 
+  /topic-opt-outs/{topicOptOutId}:
     type: topicsOptOutfromKnowledgeablePeopleList
